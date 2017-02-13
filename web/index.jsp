@@ -7,10 +7,16 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>Social TSJ</title>
-  </head>
-  <body>
+    <head>
+      <title>Social TSJ</title>
+      <style>
 
-  </body>
+      </style>
+    </head>
+    <body class="superMain">
+    <input class="cnop" type="submit" value="Вход"/>
+      <div class="main">
+
+      </div>
+    </body>
 </html>
