@@ -11,12 +11,13 @@
 <head>
     <title></title>
   <style type="text/css" rel="stylesheet">
-    <%@include file="loginStyle.css"%>
+    <%@include file="resources/loginStyle.css"%>
   </style>
+
   <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
 </head>
 
-<body>
+<body id="body">
 
   <div class="main">
 
@@ -40,12 +41,12 @@
       <div class="login" id="log">
 
         <h6 class="text">Login</h6>
-        <input class="input" type="text" name="login">
+        <input id="loginU" class="input" type="text" name="login">
 
         <h6 class="text">Password</h6>
-        <input class="input" type="password" name="pass">
+        <input id="passU" class="input" type="password" name="pass">
 
-        <input class="submit" type="submit" value="Вход">
+        <input id="auto" class="submit" type="submit" value="Вход">
         <input id="close" class="submit" type="submit" value="Закрыть">
       </div>
 
@@ -54,15 +55,8 @@
     </div>
 
   </div>
+  <script rel="script">
+    <%@include file="resources/loginScript.js"%>
+  </script>
 </body>
-<script rel="script">
-  $("#openn").click(function () {
-    $("#log").show("slow");
-  });
-
-  $("#close").click(function(){
-            $("#log").hide('slow');
-          }
-  );
-</script>
 </html>

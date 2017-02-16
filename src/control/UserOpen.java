@@ -1,5 +1,6 @@
 package control;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,12 +16,12 @@ import java.io.PrintWriter;
 public class UserOpen extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter out = resp.getWriter();
-        out.write(
-                "<input type=\"text\" name=\"userName\"/>\n" +
-                "<input type=\"password\" name=\"userPass\"/>\n" +
-                "<input type=\"submit\" name=\"Вход\"/>"
-        );
-        out.close();
+        String s = req.getParameter("name");
+        String p = req.getParameter("pass");
+        if(s.equals("marat")&& p.equals("root")){
+            req.getRequestDispatcher("user.jsp").forward(req, resp);
+        }else{
+            req.getRequestDispatcher("company.jsp").forward(req, resp);
+        }
     }
 }
