@@ -40,13 +40,12 @@
 
       <div class="login" id="log">
 
-        <h6 class="text">Login</h6>
-        <input id="loginU" class="input" type="text" name="login">
+        <form action="userOpen" method="get">
+          <input id="loginU" class="input" type="text" name="login" placeholder="Ваш логин">
+          <input id="passU" class="input" type="password" name="pass" placeholder="Ваш пароль">
+          <input id="auto" class="submit" type="submit" value="Вход">
+        </form>
 
-        <h6 class="text">Password</h6>
-        <input id="passU" class="input" type="password" name="pass">
-
-        <input id="auto" class="submit" type="submit" value="Вход">
         <input id="close" class="submit" type="submit" value="Закрыть">
       </div>
 
