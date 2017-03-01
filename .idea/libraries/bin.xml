@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="bin">
+    <CLASSES>
+      <root url="file://C:/Program Files/apache-tomcat-8.5.8/bin" />
+    </CLASSES>
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://C:/Program Files/apache-tomcat-8.5.8/bin" />
+    </NATIVE>
+    <SOURCES />
+    <jarDirectory url="file://C:/Program Files/apache-tomcat-8.5.8/bin" recursive="false" />
+  </library>
+</component>
