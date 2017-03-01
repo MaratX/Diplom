@@ -10,52 +10,33 @@
 <html>
 <head>
     <title></title>
-  <style type="text/css" rel="stylesheet">
-    <%@include file="resources/loginStyle.css"%>
-  </style>
-
-  <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script type="text/css" src="resources/bootstrap-theme.css"></script>
+    <script type="text/css" src="resources/bootstrap.css"></script>
+    <link type="text/css" rel="stylesheet" href="resources/indexCSS.css">
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
 </head>
 
-<body id="body">
+<body>
+    <div class="container" id="all">
+        <div class="row" id="body">
+            <div class="container">
+                <div class="row">
 
-  <div class="main">
+                </div>
+            </div>
+        </div>
+        <div class="row" id="telo">
+            <div class="container">
 
-    <div class="cap">
-      <input onclick="" type="submit" id="openn" value="Вход">
+            </div>
+        </div>
+        <div class="row" id="basement">
+            <div class="container">
+
+            </div>
+        </div>
     </div>
-
-
-    <div class="menu">
-
-    </div>
-
-    <div class="general">
-
-    </div>
-
-    <div class="basement">
-
-    </div>
-
-      <div class="login" id="log">
-
-        <form action="userOpen" method="get">
-          <input id="loginU" class="input" type="text" name="login" placeholder="Ваш логин">
-          <input id="passU" class="input" type="password" name="pass" placeholder="Ваш пароль">
-          <input id="auto" class="submit" type="submit" value="Вход">
-        </form>
-
-        <input id="close" class="submit" type="submit" value="Закрыть">
-      </div>
-
-    <div class="registration">
-
-    </div>
-
-  </div>
-  <script rel="script">
-    <%@include file="resources/loginScript.js"%>
-  </script>
+    <script rel="script" src="resources/bootstrap.js"></script>
+    <script rel="script" src="resources/loginScript.js"></script>
 </body>
 </html>
