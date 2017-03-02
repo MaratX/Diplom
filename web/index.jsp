@@ -10,22 +10,44 @@
 <html>
 <head>
     <title></title>
-    <script type="text/css" src="resources/bootstrap-theme.css"></script>
-    <script type="text/css" src="resources/bootstrap.css"></script>
-    <link type="text/css" rel="stylesheet" href="resources/indexCSS.css">
+    <%@include file="resources/bootstrap.css"%>
+    <%@include file="resources/bootstrap-theme.css"%>
+    <%@include file="resources/bootstrap.js"%>
+    <%--<script type="text/css" src="resources/bootstrap-theme.css"></script>
+    <script type="text/css" src="resources/bootstrap.css"></script>--%>
     <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
 </head>
 
 <body>
-    <div class="container" id="all">
-        <div class="row" id="body">
-            <div class="container">
-                <div class="row">
-
-                </div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="submit" class="navbar-toggle" data-toggle="collapse" data-target="#fo">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">LOG</a>
+            </div>
+            <div class="collapse navbar-collapse" id="fo">
+                <form action="" class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="login" value=""/>
+                        <input type="text" class="form-control" placeholder="password" value=""/>
+                        <button type="submit" class="btn btn-primary">
+                            <i>Войти</i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="row" id="telo">
+    </div>
+    <div class="container-fluid" id="all">
+        <div class="row" id="cap">
+
+        </div>
+        <div class="row" id="body">
             <div class="container">
 
             </div>

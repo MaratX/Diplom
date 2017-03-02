@@ -7,9 +7,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="project" />
           <element id="dir-copy" path="C:/Program Files/apache-tomcat-8.5.8" />
+          <element id="dir-copy" path="C:/Program Files/apache-tomcat-8.0.21" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="lib" />
           <element id="library" level="project" name="bin" />
         </element>
       </element>
