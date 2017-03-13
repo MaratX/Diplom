@@ -1,5 +1,7 @@
 package control;
 
+import lib_dep.Account;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,9 +18,11 @@ import java.io.PrintWriter;
 public class UserOpen extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String s = req.getParameter("login");
         String p = req.getParameter("pass");
-        if(s.equals("marat")&& p.equals("root")){
+        Account account = new Account();
+        if(account.Authentication(s, p)){
             req.getRequestDispatcher("WEB-INF/view/user.jsp").forward(req, resp);
         }else{
             req.getRequestDispatcher("WEB-INF/view/company.jsp").forward(req, resp);

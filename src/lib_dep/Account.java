@@ -11,9 +11,7 @@ public class Account {
     private JDBC jdbc = new JDBC();
     private ResultSet rs;
     private PreparedStatement ps;
-    private String SqlAuthentication =  "DECLARE @return BIT = 0;" +
-                                        "IF EXISTS (SELECT userId, userPass FROM USER " +
-                                        "WHERE userId = ? and userPass = ?) SET @return = 1;";
+    private String SqlAuthentication =  "SELECT count(iduser) = 1 FROM user WHERE login = ? AND password = ?;";
 
     private String SqlAuthorization =   "" +
                                         "" +
@@ -26,6 +24,11 @@ public class Account {
             ps.setString(1, login);
             ps.setString(2, password);
             rs = ps.executeQuery();
+            if(rs.next()){
+                if(rs.getInt(1) == 1){
+                    return true;
+                }
+            }
         }catch (SQLException e){
             System.out.println("Error: " + e);
             return false;
