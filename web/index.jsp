@@ -11,6 +11,7 @@
 <head>
     <title></title>
     <link href="bootstrap.css" rel="stylesheet">
+    <link href="mystyle.css" rel="stylesheet">
     <link href="bootstrap-theme.css" rel="stylesheet">
     <script src="jquery-3.1.1.min.js"></script>
     <script src="bootstrap.js"></script>
@@ -60,8 +61,18 @@
             </div>
         </div>
         <div class="row" id="basement">
-            <div class="container">
-
+            <div class="container marat">
+                <form action="userRegistration">
+                    <div class="form-group">
+                        <input type="text" name="loginReg" class="form-control" placeholder="login" value=""/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="passReg" class="form-control" placeholder="password" value=""/>
+                    </div>
+                    <button type="submit" class="btn btn-danger">
+                        <i>Регистрация</i>
+                    </button>
+                </form>
             </div>
         </div>
     </div>

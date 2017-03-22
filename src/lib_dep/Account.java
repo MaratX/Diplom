@@ -13,9 +13,9 @@ public class Account {
     private PreparedStatement ps;
     private String SqlAuthentication =  "SELECT count(iduser) = 1 FROM user WHERE login = ? AND password = ?;";
 
-    private String SqlAuthorization =   "" +
-                                        "" +
-                                        "";
+    private String SqlTestName = "SELECT count(iduser) > 0 FROM user WHERE login = ?";
+
+    private String SqlAuthorization =   "INSERT INTO user (login, password) VALUES (?, ?)";
 
     public boolean Authentication (String login, String password){
 
@@ -37,10 +37,20 @@ public class Account {
     }
     public String Authorization(String login, String password){
         try{
-            ps = jdbc.getCon().prepareStatement(SqlAuthorization);
+            ps = jdbc.getCon().prepareStatement(SqlTestName);
             ps.setString(1, login);
-            ps.setString(2, password);
             rs = ps.executeQuery();
+            if(rs.next()){
+                if(rs.getInt(1) == 1){
+                    return "This login is registered";
+                }else{
+                    ps = jdbc.getCon().prepareStatement(SqlAuthorization);
+                    ps.setString(1, login);
+                    ps.setString(2, password);
+                    ps.executeUpdate();
+                    return "registration completed successfully";
+                }
+            }
         }catch (SQLException e){
             System.out.println("Error: " + e);
         }
