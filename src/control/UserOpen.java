@@ -1,15 +1,13 @@
 package control;
 
-import lib_dep.Account;
+import lib_dep.AccountDAO;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * Created by Gustovs on 13.02.2017.
@@ -21,7 +19,7 @@ public class UserOpen extends HttpServlet {
 
         String s = req.getParameter("login");
         String p = req.getParameter("pass");
-        Account account = new Account();
+        AccountDAO account = new AccountDAO();
         if(account.Authentication(s, p)){
             req.getRequestDispatcher("WEB-INF/view/user.jsp").forward(req, resp);
         }else{

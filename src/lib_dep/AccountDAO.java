@@ -7,7 +7,7 @@ import java.sql.SQLException;
 /**
  * Created by HMF on 21.02.2017.
  */
-public class Account {
+public class AccountDAO {
     private JDBC jdbc = new JDBC();
     private ResultSet rs;
     private PreparedStatement ps;

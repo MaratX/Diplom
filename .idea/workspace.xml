@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2b34019-b1d8-4762-829e-1cf40f5b4a9d" name="Default" comment="0.2.5 &#10;add address, organization, addressDAO, userRegistration">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/activation-1.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/javaee-api-7.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/javax.mail-1.5.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/mysql-connector-java-5.1.16.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/a14b7a1f-c737-4299-8665-6d4b0fe0216e.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/a14b7a1f-c737-4299-8665-6d4b0fe0216e/storage.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/control/userRegistration.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/lib_dep/AddressDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/objects/Address.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/objects/Organization.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bootstrap-theme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/jquery-3.1.1.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/mystyle.css" />
+    <list default="true" id="c2b34019-b1d8-4762-829e-1cf40f5b4a9d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/lib_dep/OrganizationDAO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/objects/AddressTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/project_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/project_war_exploded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/a14b7a1f-c737-4299-8665-6d4b0fe0216e.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/a14b7a1f-c737-4299-8665-6d4b0fe0216e.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib_dep/Account.java" afterPath="$PROJECT_DIR$/src/lib_dep/Account.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/bootstrap.css" afterPath="$PROJECT_DIR$/web/resources/bootstrap.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.iml" afterPath="$PROJECT_DIR$/project.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/control/UserOpen.java" afterPath="$PROJECT_DIR$/src/control/UserOpen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/control/userRegistration.java" afterPath="$PROJECT_DIR$/src/control/userRegistration.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/lib_dep/AddressDAO.java" afterPath="$PROJECT_DIR$/src/lib_dep/AddressDAO.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/lib_dep/Account.java" afterPath="$PROJECT_DIR$/src/lib_dep/AccountDAO.java" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -65,46 +58,41 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - diplom@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="organization" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - diplom@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="address" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="Diplom" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="AddressDAO.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/lib_dep/AddressDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="726">
-              <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#getAddressById#0;class#AddressDAO#0" expanded="false" />
-                <marker date="1490207672284" expanded="true" signature="341:442" ph="INSERT INTO address... " />
-                <marker date="1490207672284" expanded="true" signature="485:572" ph="SELECT count... address" />
-                <marker date="1490207672284" expanded="true" signature="485:574" ph="SELECT count... address" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Account.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib_dep/Account.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-              <folding>
-                <element signature="method#Authentication#0;class#Account#0" expanded="false" />
-                <marker date="1489934471856" expanded="true" signature="312:378" ph="SELECT count... user" />
-                <marker date="1489934471856" expanded="true" signature="312:379" ph="SELECT count... user" />
-                <marker date="1489934471856" expanded="true" signature="418:468" ph="SELECT count... user" />
-                <marker date="1489934471856" expanded="true" signature="513:561" ph="INSERT INTO user... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -138,7 +126,6 @@
         <option value="$PROJECT_DIR$/src/lib_dep/testDb.java" />
         <option value="$PROJECT_DIR$/src/lib_dep/JDBC.java" />
         <option value="$PROJECT_DIR$/src/control/UserOpen.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/a14b7a1f-c737-4299-8665-6d4b0fe0216e/console.sql" />
         <option value="dbtable:/c745ce96/a14b7a1f-c737-4299-8665-6d4b0fe0216e/diplom.user" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/a14b7a1f-c737-4299-8665-6d4b0fe0216e/console_1.sql" />
         <option value="$PROJECT_DIR$/web/resources/bootstrap.css" />
@@ -149,7 +136,12 @@
         <option value="$PROJECT_DIR$/src/control/userRegistration.java" />
         <option value="$PROJECT_DIR$/src/objects/Address.java" />
         <option value="$PROJECT_DIR$/src/objects/Organization.java" />
+        <option value="dbtable:/c745ce96/a14b7a1f-c737-4299-8665-6d4b0fe0216e/diplom.address" />
+        <option value="$PROJECT_DIR$/test/objects/AddressTest.java" />
         <option value="$PROJECT_DIR$/src/lib_dep/AddressDAO.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/a14b7a1f-c737-4299-8665-6d4b0fe0216e/console.sql" />
+        <option value="$PROJECT_DIR$/src/lib_dep/OrganizationDAO.java" />
+        <option value="$PROJECT_DIR$/src/lib_dep/AccountDAO.java" />
       </list>
     </option>
   </component>
@@ -193,7 +185,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -298,6 +290,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="objects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Diplom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Diplom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -344,14 +354,14 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/Program Files/apache-tomcat-8.5.8" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/hamcrest-core-1.3.jar!/" />
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
@@ -377,7 +387,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="825" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
@@ -389,7 +399,111 @@
       <recent name="D:\dip\Diplom\web\WEB-INF" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.dip">
+  <component name="RunManager" selected="JUnit.AddressTest.deleteAddressById">
+    <configuration default="false" name="AddressTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="objects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="project" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="objects" />
+      <option name="MAIN_CLASS_NAME" value="objects.AddressTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AddressTest.createAddressTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="objects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="project" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="objects" />
+      <option name="MAIN_CLASS_NAME" value="objects.AddressTest" />
+      <option name="METHOD_NAME" value="createAddressTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AddressTest.updateAddressByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="objects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="project" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="objects" />
+      <option name="MAIN_CLASS_NAME" value="objects.AddressTest" />
+      <option name="METHOD_NAME" value="updateAddressByIdTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AddressTest.deleteAddressById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="objects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="project" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="objects" />
+      <option name="MAIN_CLASS_NAME" value="objects.AddressTest" />
+      <option name="METHOD_NAME" value="deleteAddressById" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
       <deployment />
       <server-settings />
@@ -855,9 +969,21 @@
         </option>
       </method>
     </configuration>
-    <list size="1">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.dip" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.AddressTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.AddressTest.createAddressTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.AddressTest.updateAddressByIdTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.AddressTest.deleteAddressById" />
     </list>
+    <recent_temporary>
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.AddressTest.deleteAddressById" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.AddressTest.updateAddressByIdTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.AddressTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.AddressTest.createAddressTest" />
+      </list>
+    </recent_temporary>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -904,7 +1030,8 @@
       <workItem from="1489426544279" duration="947000" />
       <workItem from="1489929855143" duration="4493000" />
       <workItem from="1490027536152" duration="591000" />
-      <workItem from="1490197390409" duration="5046000" />
+      <workItem from="1490197390409" duration="5122000" />
+      <workItem from="1490279325038" duration="14126000" />
     </task>
     <task id="LOCAL-00001" summary="0.2.4">
       <created>1489429235593</created>
@@ -913,20 +1040,68 @@
       <option name="project" value="LOCAL" />
       <updated>1489429235593</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="0.2.5 &#10;add address, organization, addressDAO, userRegistration">
+      <created>1490207882034</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1490207882034</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="AddressTest_deleteAddressById - 2017.03.23 at 20h 36m 42s.xml">
+      <configuration name="AddressTest.deleteAddressById" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AddressTest_deleteAddressById - 2017.03.23 at 20h 38m 10s.xml">
+      <configuration name="AddressTest.deleteAddressById" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AddressTest_deleteAddressById - 2017.03.23 at 20h 39m 16s.xml">
+      <configuration name="AddressTest.deleteAddressById" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AddressTest_deleteAddressById - 2017.03.23 at 20h 40m 38s.xml">
+      <configuration name="AddressTest.deleteAddressById" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AddressTest_deleteAddressById - 2017.03.23 at 20h 42m 11s.xml">
+      <configuration name="AddressTest.deleteAddressById" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AddressTest_deleteAddressById - 2017.03.23 at 20h 43m 22s.xml">
+      <configuration name="AddressTest.deleteAddressById" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AddressTest_deleteAddressById - 2017.03.23 at 20h 44m 22s.xml">
+      <configuration name="AddressTest.deleteAddressById" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AddressTest_deleteAddressById - 2017.03.23 at 20h 44m 38s.xml">
+      <configuration name="AddressTest.deleteAddressById" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AddressTest_deleteAddressById - 2017.03.23 at 20h 45m 01s.xml">
+      <configuration name="AddressTest.deleteAddressById" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AddressTest_updateAddressByIdTest - 2017.03.23 at 20h 26m 58s.xml">
+      <configuration name="AddressTest.updateAddressByIdTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32384000" />
+    <option name="totallyTimeSpent" value="46586000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.50214595" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -935,18 +1110,20 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3449831" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43968433" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.832018" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.49785408" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.291309" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.832018" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15504292" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -954,8 +1131,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -997,7 +1172,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="42" />
+      <option name="time" value="86" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1006,16 +1181,49 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/lib_dep/Account.java">
+    <entry file="file://$PROJECT_DIR$/src/lib_dep/AddressDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#createAddress#0;class#AddressDAO#0" expanded="false" />
+            <element signature="method#getAddressById#0;class#AddressDAO#0" expanded="false" />
+            <element signature="method#updateAddressById#0;class#AddressDAO#0" expanded="false" />
+            <element signature="method#deleteAddressById#0;class#AddressDAO#0" expanded="false" />
+            <marker date="1490291150216" expanded="true" signature="368:470" ph="INSERT INTO address... " />
+            <marker date="1490291150216" expanded="true" signature="513:600" ph="SELECT count... address" />
+            <marker date="1490291150216" expanded="true" signature="513:602" ph="SELECT count... address" />
+            <marker date="1490291150216" expanded="true" signature="648:764" ph="UPDATE addre... " />
+            <marker date="1490291150216" expanded="true" signature="810:842" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib_dep/AccountDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding>
+            <element signature="method#Authentication#0;class#AccountDAO#0" expanded="false" />
+            <marker date="1490293701549" expanded="true" signature="315:381" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="315:382" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="421:471" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="516:564" ph="INSERT INTO user... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib_dep/AccountDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
-            <element signature="method#Authentication#0;class#Account#0" expanded="false" />
-            <marker date="1489934471856" expanded="true" signature="312:378" ph="SELECT count... user" />
-            <marker date="1489934471856" expanded="true" signature="312:379" ph="SELECT count... user" />
-            <marker date="1489934471856" expanded="true" signature="418:468" ph="SELECT count... user" />
-            <marker date="1489934471856" expanded="true" signature="513:561" ph="INSERT INTO user... " />
+            <element signature="method#Authentication#0;class#AccountDAO#0" expanded="false" />
+            <marker date="1490293701549" expanded="true" signature="315:381" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="315:382" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="421:471" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="516:564" ph="INSERT INTO user... " />
           </folding>
         </state>
       </provider>
@@ -1054,16 +1262,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib_dep/Account.java">
+    <entry file="file://$PROJECT_DIR$/src/lib_dep/AccountDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
-            <element signature="method#Authentication#0;class#Account#0" expanded="false" />
-            <marker date="1489934471856" expanded="true" signature="312:378" ph="SELECT count... user" />
-            <marker date="1489934471856" expanded="true" signature="312:379" ph="SELECT count... user" />
-            <marker date="1489934471856" expanded="true" signature="418:468" ph="SELECT count... user" />
-            <marker date="1489934471856" expanded="true" signature="513:561" ph="INSERT INTO user... " />
+            <element signature="method#Authentication#0;class#AccountDAO#0" expanded="false" />
+            <marker date="1490293701549" expanded="true" signature="315:381" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="315:382" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="421:471" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="516:564" ph="INSERT INTO user... " />
           </folding>
         </state>
       </provider>
@@ -1102,16 +1310,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib_dep/Account.java">
+    <entry file="file://$PROJECT_DIR$/src/lib_dep/AccountDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="method#Authentication#0;class#Account#0" expanded="false" />
-            <marker date="1489934471856" expanded="true" signature="312:378" ph="SELECT count... user" />
-            <marker date="1489934471856" expanded="true" signature="312:379" ph="SELECT count... user" />
-            <marker date="1489934471856" expanded="true" signature="418:468" ph="SELECT count... user" />
-            <marker date="1489934471856" expanded="true" signature="513:561" ph="INSERT INTO user... " />
+            <element signature="method#Authentication#0;class#AccountDAO#0" expanded="false" />
+            <marker date="1490293701549" expanded="true" signature="315:381" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="315:382" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="421:471" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="516:564" ph="INSERT INTO user... " />
           </folding>
         </state>
       </provider>
@@ -1180,16 +1388,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib_dep/Account.java">
+    <entry file="file://$PROJECT_DIR$/src/lib_dep/AccountDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
-            <element signature="method#Authentication#0;class#Account#0" expanded="false" />
-            <marker date="1489934471856" expanded="true" signature="312:378" ph="SELECT count... user" />
-            <marker date="1489934471856" expanded="true" signature="312:379" ph="SELECT count... user" />
-            <marker date="1489934471856" expanded="true" signature="418:468" ph="SELECT count... user" />
-            <marker date="1489934471856" expanded="true" signature="513:561" ph="INSERT INTO user... " />
+            <element signature="method#Authentication#0;class#AccountDAO#0" expanded="false" />
+            <marker date="1490293701549" expanded="true" signature="315:381" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="315:382" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="421:471" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="516:564" ph="INSERT INTO user... " />
           </folding>
         </state>
       </provider>
@@ -1248,13 +1456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a14b7a1f-c737-4299-8665-6d4b0fe0216e/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a14b7a1f-c737-4299-8665-6d4b0fe0216e/console_1.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1290,18 +1491,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/c745ce96/a14b7a1f-c737-4299-8665-6d4b0fe0216e/diplom.user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/control/userRegistration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
@@ -1328,62 +1517,109 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/objects/Organization.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="42" column="54" lean-forward="false" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
-          <folding>
-            <element signature="e#353#354#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-            <element signature="e#490#491#0" expanded="true" />
-            <element signature="e#534#535#0" expanded="true" />
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#626#627#0" expanded="true" />
-            <element signature="e#673#674#0" expanded="true" />
-            <element signature="e#728#729#0" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-            <element signature="e#879#880#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/objects/Address.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="792">
           <caret line="44" column="18" lean-forward="false" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
           <folding>
-            <element signature="e#930#931#0" expanded="true" />
-            <element signature="e#961#962#0" expanded="true" />
+            <element signature="e#930#931#0" expanded="false" />
+            <element signature="e#961#962#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib_dep/Account.java">
+    <entry file="dbDummy://dbtable:/c745ce96/a14b7a1f-c737-4299-8665-6d4b0fe0216e/diplom.user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/c745ce96/a14b7a1f-c737-4299-8665-6d4b0fe0216e/diplom.address">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/objects/AddressTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
+        <state relative-caret-position="602">
+          <caret line="52" column="47" lean-forward="true" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#createAddressTest#0;class#AddressTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a14b7a1f-c737-4299-8665-6d4b0fe0216e/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib_dep/AccountDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
           <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
-            <element signature="method#Authentication#0;class#Account#0" expanded="false" />
-            <marker date="1489934471856" expanded="true" signature="312:378" ph="SELECT count... user" />
-            <marker date="1489934471856" expanded="true" signature="312:379" ph="SELECT count... user" />
-            <marker date="1489934471856" expanded="true" signature="418:468" ph="SELECT count... user" />
-            <marker date="1489934471856" expanded="true" signature="513:561" ph="INSERT INTO user... " />
+            <element signature="method#Authentication#0;class#AccountDAO#0" expanded="false" />
+            <marker date="1490293701549" expanded="true" signature="315:381" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="315:382" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="421:471" ph="SELECT count... user" />
+            <marker date="1490293701549" expanded="true" signature="516:564" ph="INSERT INTO user... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/objects/Organization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="42" column="54" lean-forward="false" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib_dep/OrganizationDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/lib_dep/AddressDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
+        <state relative-caret-position="594">
+          <caret line="84" column="60" lean-forward="false" selection-start-line="84" selection-start-column="60" selection-end-line="84" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#createAddress#0;class#AddressDAO#0" expanded="false" />
             <element signature="method#getAddressById#0;class#AddressDAO#0" expanded="false" />
-            <marker date="1490207672284" expanded="true" signature="341:442" ph="INSERT INTO address... " />
-            <marker date="1490207672284" expanded="true" signature="485:572" ph="SELECT count... address" />
-            <marker date="1490207672284" expanded="true" signature="485:574" ph="SELECT count... address" />
+            <element signature="method#updateAddressById#0;class#AddressDAO#0" expanded="false" />
+            <element signature="method#deleteAddressById#0;class#AddressDAO#0" expanded="false" />
+            <marker date="1490291150216" expanded="true" signature="368:470" ph="INSERT INTO address... " />
+            <marker date="1490291150216" expanded="true" signature="513:600" ph="SELECT count... address" />
+            <marker date="1490291150216" expanded="true" signature="513:602" ph="SELECT count... address" />
+            <marker date="1490291150216" expanded="true" signature="648:764" ph="UPDATE addre... " />
+            <marker date="1490291150216" expanded="true" signature="810:842" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>

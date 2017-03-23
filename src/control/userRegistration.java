@@ -1,6 +1,6 @@
 package control;
 
-import lib_dep.Account;
+import lib_dep.AccountDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +18,7 @@ public class userRegistration extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String s = req.getParameter("loginReg");
         String p = req.getParameter("passReg");
-        Account account = new Account();
+        AccountDAO account = new AccountDAO();
         String result = account.Authorization(s, p);
         if(result.equals("registration completed successfully")){
             req.getRequestDispatcher("WEB-INF/view/user.jsp").forward(req, resp);
