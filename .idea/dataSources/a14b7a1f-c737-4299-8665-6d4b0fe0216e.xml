@@ -97,7 +97,11 @@
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="28" parent="9" name="PRIMARY">
+    <column id="28" parent="9" name="addressUser">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="29" parent="9" name="PRIMARY">
       <ColNames>iduser</ColNames>
       <Primary>1</Primary>
     </key>

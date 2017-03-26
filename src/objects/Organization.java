@@ -6,14 +6,17 @@ package objects;
 public class Organization {
     private int id_Organization;
     private String name_Organization;
-    private Address legalAddressOrganization;
-    private Address physicalAddressOrganization;
+    private int legalAddressOrganization;
+    private int physicalAddressOrganization;
     private int checkingAccountOrganization;
 
     public Organization(String name_Organization) {
         this.name_Organization = name_Organization;
     }
 
+    public Organization(){
+
+    }
 
 
     public int getId_Organization() {
@@ -24,11 +27,11 @@ public class Organization {
         return name_Organization;
     }
 
-    public Address getLegalAddressOrganization() {
+    public int getLegalAddressOrganization() {
         return legalAddressOrganization;
     }
 
-    public Address getPhysicalAddressOrganization() {
+    public int getPhysicalAddressOrganization() {
         return physicalAddressOrganization;
     }
 
@@ -36,15 +39,19 @@ public class Organization {
         return checkingAccountOrganization;
     }
 
-    public void setLegalAddressOrganization(Address legalAddressOrganization) {
+    public void setLegalAddressOrganization(int legalAddressOrganization) {
         this.legalAddressOrganization = legalAddressOrganization;
     }
 
-    public void setPhysicalAddressOrganization(Address physicalAddressOrganization) {
+    public void setPhysicalAddressOrganization(int physicalAddressOrganization) {
         this.physicalAddressOrganization = physicalAddressOrganization;
     }
 
     public void setCheckingAccountOrganization(int checkingAccountOrganization) {
         this.checkingAccountOrganization = checkingAccountOrganization;
+    }
+
+    public void setName_Organization(String name_Organization) {
+        this.name_Organization = name_Organization;
     }
 }
