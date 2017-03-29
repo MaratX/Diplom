@@ -10,11 +10,11 @@
 <html>
 <head>
     <title></title>
-    <link href="bootstrap.css" rel="stylesheet">
-    <link href="mystyle.css" rel="stylesheet">
-    <link href="bootstrap-theme.css" rel="stylesheet">
-    <script src="jquery-3.1.1.min.js"></script>
-    <script src="bootstrap.js"></script>
+    <link href="../../resources/css/bootstrap.css" rel="stylesheet">
+    <link href="../../resources/css/mystyle.css" rel="stylesheet">
+    <link href="../../resources/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="../../resources/js/jquery.js" rel="script">
+    <link href="../../resources/js/bootstrap.js" rel="script">
 </head>
 
 <body>
