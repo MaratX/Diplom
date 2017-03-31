@@ -16,7 +16,7 @@ $("#tsjLink").click(function(){
 
 $("#testCompanyName").click(function () {
         $.ajax({
-            url:"company",
+            url:"addCompany",
             type:"GET",
             data: { 'loginA' : $("#companyN").val()},
             success: ordine,
@@ -35,14 +35,14 @@ function ordine(data) {
 }
 $("#createCompanyName").click(function () {
     $.ajax({
-        url:"addOrganization",
+        url: "addCompany",
         type:"GET",
-        data:{'nameOrganization' : $("#companyN").val()},
-        success: createOrganizationFunction,
+        data:{'nameOrganization' : $("#companyN").val(), "idUser" : 2},
+        success: createCompanyFunction,
         dataType:"text"
     })
-});
-function createOrganizationFunction(data) {
+})
+function createCompanyFunction(data) {
     if(data >= 0) {
         document.getElementById("createCompanyName").setAttribute("class", "btn-success");
     }else {

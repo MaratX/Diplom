@@ -31,7 +31,7 @@ public class UserOpen extends HttpServlet {
             session.setAttribute("token", session.getId());
             req.getRequestDispatcher("WEB-INF/view/user.jsp").forward(req, resp);
         }else{
-            req.getRequestDispatcher("WEB-INF/view/company.jsp").forward(req, resp);
+            req.getRequestDispatcher("WEB-INF/view/addCompany.jsp").forward(req, resp);
         }
     }
 }

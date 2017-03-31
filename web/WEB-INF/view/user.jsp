@@ -116,7 +116,7 @@
                         <div class="center-block">
                             <h4 class="text-center">Введите название Фирмы</h4>
                             <input id="companyN" type="text" class="text-center center-block" placeholder="Название" >
-
+                            <h5 id="listMyCompany"></h5>
                         </div>
                     </div>
                     <div class="modal-footer">

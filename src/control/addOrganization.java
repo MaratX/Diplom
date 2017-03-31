@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * Created by Gustovs on 31.03.2017.
  */
 @WebServlet(name="addOrganization", value = "/addOrganization")
-public class createOrganization extends HttpServlet {
+public class addOrganization extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try{

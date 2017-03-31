@@ -1,5 +1,7 @@
 package control;
 
+import lib_dep.AccountDAO;
+import lib_dep.MyCompanyDAO;
 import lib_dep.OrganizationDAO;
 import objects.Organization;
 
@@ -15,15 +17,19 @@ import java.sql.SQLException;
 /**
  * Created by Gustovs on 29.03.2017.
  */
-@WebServlet(name="company", value = "/company")
-public class company extends HttpServlet {
+@WebServlet(name="addCompany", value = "/addCompany")
+public class addCompany extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             OrganizationDAO organization = new OrganizationDAO();
-            PrintWriter ps = resp.getWriter();
-            ps.print(organization.isOrganization(req.getParameter("loginA")));
+            MyCompanyDAO myCompanyDAO = new MyCompanyDAO();
+            AccountDAO accountDAO = new AccountDAO();
 
+            PrintWriter ps = resp.getWriter();
+            int  idOrganization = organization.createOrganization(req.getParameter("nameOrganization"), 0);
+            int idCompany = myCompanyDAO.createMyCompany(accountDAO.getIdUser(req.getAttribute("login").toString()), idOrganization);
+            ps.print(idCompany);
         }catch (SQLException e){
             System.out.println("Error " + e);
         }
