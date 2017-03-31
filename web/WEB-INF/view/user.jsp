@@ -115,12 +115,16 @@
                     <div class="modal-body">
                         <div class="center-block">
                             <h4 class="text-center">Введите название Фирмы</h4>
-                            <input id="companyN" type="text" class="text-center center-block" placeholder="Название">
+                            <input id="companyN" type="text" class="text-center center-block" placeholder="Название" >
+
                         </div>
                     </div>
                     <div class="modal-footer">
                         <div id="error"></div>
-                        <button id="testCompanyName" type="button" class="btn-default">Проверить</button>
+
+                        <button id="testCompanyName" type="button" class="btn-default">
+                            Проверить
+                        </button>
                         <button id="createCompanyName" type="button" class="btn-default">Создать</button>
                     </div>
                 </div>

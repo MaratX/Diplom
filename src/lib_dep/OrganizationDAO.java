@@ -19,6 +19,7 @@ public class OrganizationDAO {
     private String sqlCreateOrganization = "INSERT INTO organization (name, legalAddressOrganization, pshycalAddressOrganization, checkingAccountOrganization) VALUES (?,?,?,?)";
     private String sqlDeleteOrganization = "DELETE FROM organization WHERE id = ?";
     private String sqlGetOrganizationById = "SELECT name, legalAddressOrganization, pshycalAddressOrganization, checkingAccountOrganization FROM organization WHERE id = ?";
+    private String sqlIsOrganization = "SELECT name FROM organization WHERE name = ?";
 
     public int createOrganization(String name, int CheckingAccountOrganization) throws SQLException{
         ps = jdbc.getCon().prepareStatement(sqlCreateOrganization, Statement.RETURN_GENERATED_KEYS);
@@ -56,6 +57,18 @@ public class OrganizationDAO {
             organization.setCheckingAccountOrganization(rs.getInt(4));
         }
         return organization;
+    }
+
+    public boolean isOrganization(String nameOrganization)throws SQLException{
+        ps = jdbc.getCon().prepareStatement(sqlIsOrganization);
+        ps.setString(1, nameOrganization);
+        rs = ps.executeQuery();
+        if(rs.next()){
+            if(nameOrganization.equals(rs.getString(1))){
+                return true;
+            }
+        }
+        return false;
     }
 
 }
