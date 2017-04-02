@@ -1,6 +1,8 @@
 package control;
 
+import lib_dep.AccountDAO;
 import lib_dep.MyCompanyDAO;
+import lib_dep.OrganizationDAO;
 import objects.MyCompany;
 
 import javax.servlet.ServletException;
@@ -21,12 +23,19 @@ public class getListMyCompany extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try{
+            resp.setCharacterEncoding("UTF-8");
             PrintWriter pw = resp.getWriter();
             MyCompanyDAO myCompanyDAO = new MyCompanyDAO();
-            ArrayList<MyCompany> list = myCompanyDAO.getListMyCompany(Integer.parseInt(req.getParameter("idUser")));
+            AccountDAO accountDAO = new AccountDAO();
+            OrganizationDAO organizationDAO = new OrganizationDAO();
+            int ii = accountDAO.getIdUser(req.getParameter("login"));
+            ArrayList<MyCompany> list = myCompanyDAO.getListMyCompany(ii);
             String listJson = "";
             for(MyCompany m : list){
-                listJson += toString(m) + " ";
+                String nameOrganization = organizationDAO.getOrganizationById(m.getIdOrganization()).getName_Organization();
+                int idOrganization = m.getIdOrganization();
+                listJson += toString(idOrganization, nameOrganization);
+
             }
             pw.print(listJson);
         }catch (SQLException e){
@@ -34,7 +43,8 @@ public class getListMyCompany extends HttpServlet{
         }
     }
 
-    public String toString(MyCompany myCompany){
-        return "{ \"id\" :\"" + myCompany.getIdMyCompany() + "\" , \"idUser\" : \"" + myCompany.getIdUser() + "\", \"idOrganization\" : \"" + myCompany.getIdOrganization() + "\"}";
+    public String toString(int id, String name){
+        return id + " " + name + "_";
     }
+
 }

@@ -57,7 +57,7 @@ public class MyCompanyDAO {
         ps = jdbc.getCon().prepareStatement(sqlGetListMyCompany);
         ps.setInt(1, idUser);
         rs = ps.executeQuery();
-        if(rs.next()){
+        while (rs.next()){
             list.add(new MyCompany(rs.getInt(1), rs.getInt(2), rs.getInt(3)));
         }
         return list;

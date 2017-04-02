@@ -20,7 +20,7 @@
                     <li>
                         <a href="#">
                             <span class="glyphicon glyphicon-user"></span>
-                            <%=session.getAttribute("login")%>
+                            <div id="loginPublic"><%=session.getAttribute("login")%></div>
                         </a>
                     </li>
                     <li>
@@ -73,12 +73,16 @@
 
                     </div>
                     <div class="container col-md-12 contentRight" id="tsj">
+                        <div class="text-right">
+                            <button type="button" data-target="#tsjModal" class="btn btn-danger rightCont bottomLink " data-toggle="modal">Создать</button>
+                        </div>
+
                         <div class="panel panel-default" id="tsjContent">
-                            <div class="panel-body text-center">
-                                <h4>У вас нет Компаний!</h4>
+                            <div id="contentUserCompany" class="panel-body text-center">
+                                <h4 id="replace">У вас нет Компаний!</h4>
                             </div>
                         </div>
-                        <button type="button" data-target="#tsjModal" class="btn btn-danger center-block" data-toggle="modal">Создать</button>
+
                     </div>
                 </div>
             </div>

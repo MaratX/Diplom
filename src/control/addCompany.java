@@ -28,7 +28,7 @@ public class addCompany extends HttpServlet {
 
             PrintWriter ps = resp.getWriter();
             int  idOrganization = organization.createOrganization(req.getParameter("nameOrganization"), 0);
-            int idCompany = myCompanyDAO.createMyCompany(accountDAO.getIdUser(req.getAttribute("login").toString()), idOrganization);
+            int idCompany = myCompanyDAO.createMyCompany(accountDAO.getIdUser(req.getParameter("nameUser")), idOrganization);
             ps.print(idCompany);
         }catch (SQLException e){
             System.out.println("Error " + e);
