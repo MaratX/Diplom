@@ -9,7 +9,7 @@ import java.sql.Statement;
  * Created by HMF on 27.02.2017.
  */
 public class testDb {
-    private static final String URL = "jdbc:mysql://localhost:3306/diplom";
+    private static final String URL = "jdbc:mysql://localhost:3306/diplom?useSSL=false";
     private static final String User = "root";
     private static final String Password = "root";
     private static Connection con;

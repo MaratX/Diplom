@@ -1,0 +1,15 @@
+#sms{
+    display: block;
+}
+#zyavki{
+    display: none;
+}
+#klient{
+    display: none;
+}
+.rightCont{
+    margin-left: auto;
+}
+.contentRight{
+    padding-right: 1px;
+}
