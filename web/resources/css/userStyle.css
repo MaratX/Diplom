@@ -1,0 +1,27 @@
+.sizeIcon{
+	font-size: 40px;
+}
+.bottomIcon{
+	margin-bottom: 1px;
+}
+.bottomLink{
+	margin-bottom: 11px;
+}
+#requestUser{
+	display: none;
+}
+#sms{
+	display: block;
+}
+#tsj{
+	display: none;
+}
+.contentRight{
+	padding-right: 1px;
+}
+#testCompany{
+	display: none;
+}
+.rightCont{
+	margin-left: auto;
+}
