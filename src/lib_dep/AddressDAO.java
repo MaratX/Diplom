@@ -20,6 +20,7 @@ public class AddressDAO {
     private String sqlDeleteAddressById = "DELETE FROM address WHERE id = ?";
     private String sqlSearch = "SELECT id FROM address WHERE city = ? AND street = ? AND home = ?";
     private String sqlAddAddress = "INSERT INTO address (city, street, home) VALUES (?,?,?)";
+    private String sqlUpdateAddress = "UPDATE address SET city = ?, street = ?, home = ?, apartment = ? WHERE id = ?";
 
     public int searchAdress(String s) throws SQLException{
         String[] list = s.split("_");
@@ -115,6 +116,16 @@ public class AddressDAO {
     public int deleteAddressById(int id) throws SQLException{
         ps = jdbc.getCon().prepareStatement(sqlDeleteAddressById);
         ps.setInt(1, id);
+        return ps.executeUpdate();
+    }
+
+    public int UpdateAddress(int id, String city, String street, String home, String appart) throws SQLException{
+        ps = jdbc.getCon().prepareStatement(sqlUpdateAddress);
+        ps.setString(1, city);
+        ps.setString(2, street);
+        ps.setString(3, home);
+        ps.setString(4, appart);
+        ps.setInt(5, id);
         return ps.executeUpdate();
     }
 }

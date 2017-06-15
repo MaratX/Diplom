@@ -1,6 +1,8 @@
 package lib_dep;
 
+import objects.Address;
 import objects.MyCompany;
+import objects.User;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,6 +22,7 @@ public class MyCompanyDAO {
     private String sqlGetMyCompany = "SELECT idUser, idOrganization FROM mycompany WHERE id = ?";
     private String sqlGetListMyCompany = "SELECT id, idUser, idOrganization FROM  mycompany WHERE idUser = ?";
     private String sqlGetInCompanyRole = "SELECT role FROM mycompany WHERE idUser = ? AND idOrganization = ?";
+    private String sqlGetWorkerList = "SELECT idUser, role FROM mycompany WHERE idOrganization = ?";
 
     public int createMyCompany(int idUser, int idOrganization) throws SQLException{
         ps = jdbc.getCon().prepareStatement(sqlCreateMyCompany, Statement.RETURN_GENERATED_KEYS);
@@ -89,5 +92,26 @@ public class MyCompanyDAO {
             role = rs.getString(1);
         }
         return role;
+    }
+
+    public String getListWorker(String nameOrganization) throws SQLException{
+        int idOrg = new OrganizationDAO().getIdOrganization(nameOrganization);
+        ArrayList<User> UserList = new ArrayList<>();
+        ArrayList<String> role = new ArrayList<>();
+        String result = "";
+        ps = jdbc.getCon().prepareStatement(sqlGetWorkerList);
+        ps.setInt(1, idOrg);
+        rs = ps.executeQuery();
+        while (rs.next()){
+            UserList.add(new AccountDAO().getUser(rs.getInt(1)));
+            role.add(rs.getString(2));
+        }
+        for(int i = 0; i < UserList.size(); i++){
+            Address a = new AddressDAO().getAddressById(UserList.get(i).getAddressUser());
+            String adress = a.getCity() + " " + a.getStreet() + " " + a.getHome() + " " + a.getApartment();
+            result  += UserList.get(i).getId() +"_"+ UserList.get(i).getLogin() + "_" + UserList.get(i).getName()
+                    + " " + UserList.get(i).getLastName() + "_" + adress + "_" + role.get(i) + "_" + UserList.get(i).getPhone() + "|";
+        }
+        return result;
     }
 }

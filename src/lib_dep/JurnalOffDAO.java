@@ -1,6 +1,7 @@
 package lib_dep;
 
 import objects.JurnalOff;
+import objects.Organization;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class JurnalOffDAO {
 
     private String sqlAddJurnalOff = "INSERT INTO journalOff (address, offStart, offClose, description, idOrganization) VALUES (?,?,?,?,?)";
     private String sqlListJurnalOff = "SELECT idJournalOff, description, address, offStart, offClose FROM journaloff WHERE idOrganization = ?";
+    private String sqlUserListJornalOff = "SELECT idJournalOff, description, idOrganization, offStart, offClose FROM journaloff WHERE idOrganization IN  (SELECT idOrganization FROM mycompany WHERE idUser = ?);";
 
     public int AddJurnalOff(JurnalOff jurnalOff) throws SQLException{
             ps = jdbc.getCon().prepareStatement(sqlAddJurnalOff, Statement.RETURN_GENERATED_KEYS);
@@ -47,4 +49,21 @@ public class JurnalOffDAO {
         }
         return list;
 }
+
+    public String getListUserJurnalOff (String login) throws SQLException{
+        AccountDAO accountDAO = new AccountDAO();
+        OrganizationDAO organizationDAO = new OrganizationDAO();
+
+        ps = jdbc.getCon().prepareStatement(sqlUserListJornalOff);
+        ps.setInt(1, accountDAO.getIdUser(login));
+        rs = ps.executeQuery();
+        String result = "";
+        while (rs.next()){
+            Organization or = organizationDAO.getOrganizationById(rs.getInt(3));
+            result += (rs.getInt(1) + "_" + rs.getString(2) + "_" + or.getName_Organization() + "_" + rs.getString(4) + "_" + rs.getString(5) + "|");
+        }
+
+        return result;
+    }
+
 }

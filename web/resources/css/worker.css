@@ -13,3 +13,7 @@
 .contentRight{
     padding-right: 1px;
 }
+tbody tr:hover{
+    background: yellow;
+    cursor: pointer;
+}

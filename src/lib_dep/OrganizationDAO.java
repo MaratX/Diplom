@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * Created by Gustovs on 23.03.2017.
@@ -20,6 +21,8 @@ public class OrganizationDAO {
     private String sqlDeleteOrganization = "DELETE FROM organization WHERE id = ?";
     private String sqlGetOrganizationById = "SELECT name, legalAddressOrganization, pshycalAddressOrganization, checkingAccountOrganization FROM organization WHERE id = ?";
     private String sqlIsOrganization = "SELECT name FROM organization WHERE name = ?";
+    private String sqlGetId = "SELECT id FROM organization WHERE name = ?";
+    private String sqlGetNameOrg = "SELECT name FROM organization WHERE id = ?";
 
     public int createOrganization(String name, int CheckingAccountOrganization) throws SQLException{
         ps = jdbc.getCon().prepareStatement(sqlCreateOrganization, Statement.RETURN_GENERATED_KEYS);
@@ -57,6 +60,32 @@ public class OrganizationDAO {
             organization.setCheckingAccountOrganization(rs.getInt(4));
         }
         return organization;
+    }
+
+    public int getIdOrganization(String name) throws SQLException{
+        ps = jdbc.getCon().prepareStatement(sqlGetId);
+        ps.setString(1, name);
+        rs = ps.executeQuery();
+        int id = -1;
+        if(rs.next()){
+            id = rs.getInt(1);
+        }
+        return id;
+    }
+
+    public String getListName (String login) throws SQLException{
+        ArrayList<Integer> list = new KlientDAO().getListIdOrganization(login);
+        String result = "";
+        for(int i : list){
+            ps = jdbc.getCon().prepareStatement(sqlGetNameOrg);
+            ps.setInt(1, i);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                result += rs.getString(1) + "_";
+            }
+        }
+
+        return result;
     }
 
     public boolean isOrganization(String nameOrganization)throws SQLException{

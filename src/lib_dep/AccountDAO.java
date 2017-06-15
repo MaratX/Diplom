@@ -21,6 +21,17 @@ public class AccountDAO {
     private String SqlAuthorization =   "INSERT INTO user (login, password, addressUser) VALUES (?, ?, ?)";
     private String sqlGetUserId = "SELECT idUser FROM user WHERE login = ?";
     private String sqlGetLogin = "SELECT login FROM user WHERE iduser = ?";
+    private String sqlUser = "SELECT login, name, addressUser, lastname, phone FROM user WHERE iduser= ?";
+    private String sqladdfio = "UPDATE user SET name= ?, lastName = ? WHERE idUser = ?";
+    private String sqlAddPhone = "UPDATE user SET phone = ? WHERE idUser = ?";
+    private String sqlUpdatePass = "UPDATE user SET password = ? WHERE idUser = ?";
+
+    public int UpdatePass(int idUser, String pass) throws SQLException{
+        ps = jdbc.getCon().prepareStatement(sqlUpdatePass);
+        ps.setString(1, pass);
+        ps.setInt(2, idUser);
+        return ps.executeUpdate();
+    }
 
     public boolean Authentication (String login, String password){
 
@@ -91,5 +102,36 @@ public class AccountDAO {
         }else {
             return null;
         }
+    }
+
+    public User getUser(int id) throws SQLException{
+        User result = new User();
+        ps = jdbc.getCon().prepareStatement(sqlUser);
+        ps.setInt(1, id);
+        rs = ps.executeQuery();
+        if(rs.next()){
+            result.setId(id);
+            result.setLogin(rs.getString(1));
+            result.setAddressUser(rs.getInt(3));
+            result.setName(rs.getString(2));
+            result.setLastName(rs.getString(4));
+            result.setPhone(rs.getString(5));
+        }
+        return result;
+    }
+
+    public int addfio(String name, String lastName, int idUser) throws SQLException{
+        ps =jdbc.getCon().prepareStatement(sqladdfio);
+        ps.setString(1, name);
+        ps.setString(2, lastName);
+        ps.setInt(3, idUser);
+        return ps.executeUpdate();
+    }
+
+    public int addPhone(String phone, int idUser) throws SQLException{
+        ps = jdbc.getCon().prepareStatement(sqlAddPhone);
+        ps.setString(1, phone);
+        ps.setInt(2, idUser);
+        return ps.executeUpdate();
     }
 }

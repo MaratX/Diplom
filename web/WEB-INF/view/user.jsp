@@ -22,22 +22,21 @@
 
         <ul class="nav navbar-nav">
             <li>
-                <a href="#" id="smsLink">Сообщения</a>
+                <a href="#" id="smsLink">Уведомления</a>
             </li>
             <li>
-                <a href="#" id="requestUserLink">Заявки</a>
+                <a href="#" id="requestUserLink">Мой заявки</a>
 
             </li>
             <li>
-                <a href="#" id="tsjLink">ТСЖ</a>
+                <a href="#" id="tsjLink">Мой компаний</a>
 
             </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="#">
-                    <span class="glyphicon glyphicon-user"></span>
+                <a href="#"  >
                     <div id="loginPublic"><%=session.getAttribute("login")%></div>
                 </a>
             </li>
@@ -52,32 +51,10 @@
 </nav>
 
 <div class="container">
-    <div class="panel panel-default" id="informer">
-        <div class="panel-body">Информация!</div>
 
-    </div>
     <div class="row">
-        <!--<div class="col-md-1">
-            <div class="btn-group-vertical btn-lg">
-                <a class="btn bg-info btnGroup bottomLink" href="#" id="q">
-                    <i class="glyphicon glyphicon-envelope sizeIcon"></i>
-                    <p class="bottomIcon">СМС</p>
-                </a>
-                <a class="btn bg-info btn-group bottomLink" href="#" id="requestUserLink1">
-                    <i class="glyphicon glyphicon-bullhorn sizeIcon"></i>
-                    <p class="bottomIcon">Заявка</p>
-                </a>
-                <a class="btn bg-info btn-group bottomLink" href="#" id="tsjLink1">
-                    <i class="glyphicon glyphicon-tent sizeIcon"></i>
-                    <p class="bottomIcon">ТСЖ</p>
-                </a>
-            </div>
-        </div> -->
-
         <div class="col-md-12">
             <div class="container col-md-12 contentRight" id="sms">
-
-
                 <div class="panel panel-default" id="smsContent">
                     <div id="contentUsersms" class="panel-body text-center">
                         <table class="table table-hover">
@@ -101,11 +78,12 @@
                             </tr>
                             </thead>
                             <tbody id="MySms">
-                            <tr id="smsList">
-                                <td>
-                                    У вас нет сообщений
-                                </td>
+
+
+                            <tr id="JurnalOffList">
+                                <td>У вас нет заявок</td>
                             </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -114,14 +92,10 @@
 
 
             </div>
+
             <div class="container col-md-12 contentRight" id="requestUser">
-                <!--<div class="panel panel-default" id="requestUserContent">
-                    <div class="panel-body text-center">
-                        <h4>У вас нет Заявок!</h4>
-                    </div>
-                </div> -->
                 <div class="text-right">
-                    <button type="button" data-target="#requestModal" class="btn btn-danger rightCont bottomLink" data-toggle="modal">Создать</button>
+                    <button id="zayavkaBotton" type="button" data-target="#requestModal" class="btn btn-danger rightCont bottomLink" data-toggle="modal">Создать</button>
                 </div>
                 <div class="panel panel-default" id="zyavkaContent">
                     <div id="contentUserZyavka" class="panel-body text-center">
@@ -144,21 +118,20 @@
                                     Адрес
                                 </th>
                                 <th>
-
+                                    Описание и резултат
                                 </th>
                             </tr>
                             </thead>
                             <tbody id="MyZyavki">
-                            <tr id="zyavkaList">
-                                <td>
-                                    У вас нет Заявок!
-                                </td>
-                            </tr>
+                                <tr id = "myProposal">
+                                    <td>У вас нет заявок</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+
             <div class="container col-md-12 contentRight" id="tsj">
                 <div class="text-right">
                     <button type="button" data-target="#tsjModal" class="btn btn-danger rightCont bottomLink " data-toggle="modal">Создать</button>
@@ -183,7 +156,7 @@
                             <tbody id="MyCompany">
 
                             <tr id="replace">
-                                <td >У вас нет Компаний!</td>
+                                <td>У вас нет компаний</td>
                             </tr>
 
                             </tbody>
@@ -191,6 +164,36 @@
                     </div>
                 </div>
 
+            </div>
+
+            <div class="container col-md-12 contentRight" id="settings">
+                <div class="panel panel-default" id="settingsContent">
+                    <div id="contentSettings" class="panel-body">
+                        <h5>Настройки</h5>
+                        <hr>
+                        <h5>Логин : <%=session.getAttribute("login")%></h5>
+                        <h5 >Пароль :
+                            <input id="password"  placeholder="пароль" class="">
+                            <a href="#" id="pass" type="submit" class="btn btn-default">Изменить</a>
+                        </h5>
+                        <hr>
+                        <h5>Имя : <input id="nameUser" placeholder="имя"></h5>
+                        <h5>Фамилия : <input id="lastNameUser" placeholder="фамилия">
+                            <a href="#" id="fio" type="submit" class="btn btn-default">Изменить</a></h5>
+
+                        <hr>
+                        <h5>Телефон : <input id="phone" placeholder="Номер телефона">
+                            <a href="#" id="phoneBotton" type="submit" class="btn btn-default">Изменить</a></h5></h5>
+                        <hr>
+                        <h5>Адрес</h5>
+                        <hr>
+                        <h5>Город : <input id="city" placeholder="гор"></h5>
+                        <h5>Улица : <input id="street" placeholder="улица"></h5>
+                        <h5>Дом : <input id="home" placeholder="дом"></h5>
+                        <h5>Квартира : <input id="apart" placeholder="квартира">
+                            <a href="#" id="adressUser" type="submit" class="btn btn-default">Изменить</a></h5>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -207,16 +210,20 @@
                 <h4 class="modal-title">Запрос</h4>
             </div>
             <div class="modal-body">
-                <h4 class="text-center center-block" >Организация</h4>
-                <select class="selectpicker text-center center-block" id="zyavkiSelect">
-                    <option>выбор</option>
-                </select>
-                <h4 class="text-center center-block" >Причина</h4>
-                <input id="zyavkaDescription" type="text" class="text-center center-block" placeholder="Описание">
-
+                <div class="form-group">
+                    <label for="sel1">Организация:</label>
+                    <select class="form-control" id="sel1">
+                        <option id="optOrg">У вас нет компаний</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Причина обращения:</label>
+                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn-danger" data-dismiss="modal">Закрыть</button>
+                <button id="addZyavka" type="button" class="btn btn-default" >Отправить</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
             </div>
         </div>
     </div>
@@ -236,6 +243,7 @@
                     <input id="companyN" type="text" class="text-center center-block" placeholder="Название" >
                     <h5 id="listMyCompany"></h5>
                 </div>
+
             </div>
             <div class="modal-footer">
                 <div id="error"></div>

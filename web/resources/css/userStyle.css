@@ -16,6 +16,9 @@
 #tsj{
 	display: none;
 }
+#settings{
+	display: none;
+}
 .contentRight{
 	padding-right: 1px;
 }
@@ -24,4 +27,7 @@
 }
 .rightCont{
 	margin-left: auto;
+}
+.colorW{
+	color: white;
 }

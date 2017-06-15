@@ -4,3 +4,9 @@
 #report{
     display: none;
 }
+#settingsCompany{
+    display: none;
+}
+.bottomLink{
+    margin-bottom: 11px;
+}

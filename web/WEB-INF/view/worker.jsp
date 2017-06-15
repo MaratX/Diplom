@@ -25,10 +25,10 @@
 
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#" id="smsLinkWorker">Сообщения</a>
+                    <a href="#" id="smsLinkWorker">Журнал отключений</a>
                 </li>
                 <li>
-                    <a href="#" id="zyavkitLinkWorker">Заявки</a>
+                    <a href="#" id="zyavkitLinkWorker"> Журнал Заявки</a>
                 </li>
                 <li>
                     <a href="#" id="klientLinkWorker">Клиенты</a>
@@ -38,7 +38,11 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="#">
-                        <span class="glyphicon glyphicon-user"></span>
+                        <div id="Organization"><%=session.getAttribute("organization")%></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <div id="loginPublic"><%=session.getAttribute("login")%></div>
                     </a>
                 </li>
@@ -61,7 +65,7 @@
 
                     <div class="panel panel-default">
                         <div class="panel-body ">
-                            <h5>Журнал отключений</h5>
+                            <h5>Журнал отключений </h5>
 
                         </div>
                     </div>
@@ -70,7 +74,7 @@
                     </div>
                     <div class="panel panel-default" id="smsContent">
                         <div id="contentSms" class="panel-body">
-                            <table class="table tabel-hover">
+                            <table id="tablesms" class="table tabel-hover">
                                 <thead>
                                 <tr>
                                     <th>
@@ -91,8 +95,8 @@
                                 </tr>
                                 </thead>
                                 <tbody id="MySms">
-                                    <tr id="replaceC">
-                                        <td >У вас нет Сообщений!</td>
+                                    <tr id="replaceC" class="smska">
+                                        <td >У вас нет уведомлений</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -101,8 +105,8 @@
                 </div>
                 <!---- zyavki -->
                 <div class="container col-md-12" id="zyavki">
-                    <div>
-                        <button type="button" data-target="#zyavkiModal" class="btn btn-danger" data-toggle="modal">Создать</button>
+                    <div class="row text-right">
+                        <button type="button" data-target="#klientModal" class="btn btn-primary rightCont bottomLink " data-toggle="modal">Изменить</button>
                     </div>
                     <div class="panel panel-default" id="zyavkiContent">
                         <div id="contentZyavki" class="panel-body">
@@ -124,11 +128,14 @@
                                     <th>
                                         Адрес
                                     </th>
+                                    <th>
+                                        Ответ
+                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody id="MyZyavki">
                                 <tr id="replaceZ">
-                                    <td >У вас нет Сообщений!</td>
+                                    <td>У вас нет заявок</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -137,8 +144,9 @@
                 </div>
                 <!---- klienti -->
                 <div class="container col-md-12" id="klient">
-                    <div>
-                        <button type="button" data-target="#klientModal" class="btn btn-danger" data-toggle="modal">Создать</button>
+                    <div class="row text-right">
+                        <button type="button" data-target="#deleteKlientModal" class="btn btn-danger rightCont bottomLink " data-toggle="modal">Удалить</button>
+                        <button type="button" data-target="#klientModal" class="btn btn-primary rightCont bottomLink " data-toggle="modal">Добавить</button>
                     </div>
                     <div class="panel panel-default" id="klientContent">
                         <div id="contentKlient" class="panel-body">
@@ -149,20 +157,24 @@
                                         №
                                     </th>
                                     <th>
-                                        Причина
+                                        Логин
+                                    </th>
+                                    <th>
+                                        ФИО
                                     </th>
                                     <th>
                                         Адрес
                                     </th>
                                     <th>
-                                        Начало
-                                    </th>
-                                    <th>
-                                        Конец
+                                        Номер телефона
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody id="MyKlient">
+                                    <tr id="klientList">
+                                        <td> У вас нет клиентов</td>
+
+                                    </tr>
 
                                 </tbody>
                             </table>
@@ -192,15 +204,15 @@
                     <hr>
                     <h6>Время работ</h6>
                     <hr>
-                        <input id="start" placeholder="начало">
-                        <input id="close" placeholder="завершение">
+                        <input type="date" id="start" placeholder="начало">
+                        <input type="date" id="close" placeholder="завершение">
                     <hr>
                     <h6>Причина</h6>
                     <hr>
                         <input id="protection" placeholder="Причина">
                 </div>
                 <div class="modal-footer">
-                    <a href="" id="addJurnal" class="btn btn-default">Сохранить</a>
+                    <a href="" id="addJurnal" class="btn btn-default">Создать</a>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>
@@ -230,16 +242,44 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Добавление клиента</h4>
                 </div>
                 <div class="modal-body">
-
+                    <h4 class="text-center">Введите логин клиента</h4>
+                    <input id="loginKlient" type="text" class="text-center center-block" placeholder="логин" >
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn-danger" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn-danger" data-dismiss="modal">Добавить</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!--- Modal workers add-->
+
+    <div id="deleteKlientModal" class="modal fade" role="form">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Удаление клиента</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="center-block">
+                        <h4 class="text-center">Введите логин клиента</h4>
+                        <input id="loginKlientDelete" type="text" class="text-center center-block" placeholder="логин" >
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div id="error"></div>
+
+                    <button id="createCompanyName" type="button" class="btn-default">Удалить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 <script src="../../../resources/js/jquery.js"></script>
 <script src="../../../resources/js/bootstrap.js"></script>

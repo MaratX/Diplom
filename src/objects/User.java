@@ -8,6 +8,9 @@ public class User {
     private String login;
     private String password;
     private int addressUser;
+    private String name;
+    private String lastName;
+    private String phone;
 
     public User(String login, String password) {
         this.login = login;
@@ -45,5 +48,29 @@ public class User {
 
     public void setAddressUser(int addressUser) {
         this.addressUser = addressUser;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

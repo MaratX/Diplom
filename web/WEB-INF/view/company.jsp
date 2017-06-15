@@ -34,7 +34,11 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="#">
-                        <span class="glyphicon glyphicon-user"></span>
+                        <div id="Organization"><%=session.getAttribute("organization")%></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
                         <div id="loginPublic"><%=session.getAttribute("login")%></div>
                     </a>
                 </li>
@@ -55,8 +59,16 @@
         <div class="row">
             <!---- rabotniki -->
             <div class="container col-md-12" id="coworker">
+                <div class="container">
+                <div class="row text-right">
+                    <button type="button" data-target="#deleteWorkerModal" class="btn btn-danger rightCont bottomLink " data-toggle="modal">Удалить</button>
+                    <button type="button" data-target="#turnWorkerModal" class="btn btn-info rightCont bottomLink " data-toggle="modal">Изменить</button>
+                    <button type="button" data-target="#workerModal" class="btn btn-primary rightCont bottomLink " data-toggle="modal">Добавить</button>
+                </div>
+                </div>
                 <div class="panel panel-default" id="coworkerContent">
                     <div id="contentWorker" class="panel-body">
+
                         <table class="table tabel-hover">
                             <thead>
                                 <tr>
@@ -67,27 +79,181 @@
                                         Логин
                                     </th>
                                     <th>
+                                       ФИО
+                                    </th>
+                                    <th>
+                                        Адрес
+                                    </th>
+                                    <th>
                                         Должность
+                                    </th>
+                                    <th>
+                                        Телефон
                                     </th>
                                 </tr>
                             </thead>
                             <tbody id="MyWorker">
+                                <tr id="workerList">
+                                    <td>У вас нет сотрудников</td>
+                                </tr>
 
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <!---- othecheti -->
+
+            <!---- Reports -->
             <div class="container col-md-12" id="report">
                 <div class="panel panel-default" id="reeportContent">
                     <div id="contentReport" class="panel-body">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#worker" aria-controls="worker" role="tab" data-toggle="tab">Заявки по сотрудникам</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#zyavkiClose" aria-controls="zyavkiClose" role="tab" data-toggle="tab">Закрытые заявки</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="worker">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                №
+                                            </th>
+                                            <th>
+                                                Сотрудник
+                                            </th>
+                                            <th>
+                                                Количество заявок
+                                            </th>
+                                            <th>
+                                                В работе
+                                            </th>
+                                            <th>
+                                                Завершено
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                У вас нет сотрудников
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="zyavkiClose">
+                                <h5>close</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!---- Settings company -->
+            <div class="container col-md-12" id="settingsCompany">
+                <div class="panel panel-default" id="settingsCompanyContent">
+                    <div id="contentSettingsCompany" class="panel-body">
+                        <h4>Настройки</h4>
+                        <hr>
+                        <h5>Имя компаний : </h5>
+                        <hr>
+                        <h5>Юредический адрес</h5>
+                        <hr>
+                        <h5>Город : <input placeholder="password"></h5>
+                        <h5>Улица : <input placeholder="password"></h5>
+                        <h5>Дом : <input placeholder="password"></h5>
+                        <h5>Офис : <input placeholder="password"></h5>
+                        <hr>
+                        <h5>Физический адрес</h5>
+                        <hr>
+                        <h5>Город : <input placeholder="password"></h5>
+                        <h5>Улица : <input placeholder="password"></h5>
+                        <h5>Дом : <input placeholder="password"></h5>
+                        <h5>Офис : <input placeholder="password"></h5>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!--- Modal workers add-->
+
+    <div id="workerModal" class="modal fade" role="form">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Добавить нового сотрудника</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="center-block">
+                        <h4 class="text-center">Введите логин сотрудника</h4>
+                        <input id="loginWorker" type="text" class="text-center center-block" placeholder="логин" >
+                        <h4 class="text-center">Введите должность сотрудника</h4>
+                        <input id="positionWorker" type="text" class="text-center center-block" placeholder="должность" >
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div id="error"></div>
+
+                    <button id="createCompanyName" type="button" class="btn-default">Добавить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--- Modal workers delete -->
+
+    <div id="deleteWorkerModal" class="modal fade" role="form">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Удалить сотрудника</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="center-block">
+                        <h4 class="text-center">Введите логин сотрудника</h4>
+                        <input id="loginWorkerDelete" type="text" class="text-center center-block" placeholder="логин" >
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <button id="deleteWorker" type="button" class="btn-default">Удалить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--- Modal workers turn Изменение -->
+
+    <div id="turnWorkerModal" class="modal fade" role="form">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Добавить нового сотрудника</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="center-block">
+                        <h4 class="text-center">Введите логин сотрудника</h4>
+                        <input id="loginWorkerTurn" type="text" class="text-center center-block" placeholder="логин" >
+                        <h4 class="text-center">Введите должность сотрудника</h4>
+                        <input id="positionWorkerTurn" type="text" class="text-center center-block" placeholder="должность" >
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="turnWorker" type="button" class="btn-default">Изменить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 
