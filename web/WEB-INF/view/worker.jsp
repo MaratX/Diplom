@@ -103,10 +103,17 @@
                         </div>
                     </div>
                 </div>
+
                 <!---- zyavki -->
                 <div class="container col-md-12" id="zyavki">
                     <div class="row text-right">
-                        <button type="button" data-target="#klientModal" class="btn btn-primary rightCont bottomLink " data-toggle="modal">Изменить</button>
+
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-body ">
+                            <h5>Журнал заявок </h5>
+
+                        </div>
                     </div>
                     <div class="panel panel-default" id="zyavkiContent">
                         <div id="contentZyavki" class="panel-body">
@@ -126,9 +133,6 @@
                                         Статус
                                     </th>
                                     <th>
-                                        Адрес
-                                    </th>
-                                    <th>
                                         Ответ
                                     </th>
                                 </tr>
@@ -142,10 +146,10 @@
                         </div>
                     </div>
                 </div>
+
                 <!---- klienti -->
                 <div class="container col-md-12" id="klient">
                     <div class="row text-right">
-                        <button type="button" data-target="#deleteKlientModal" class="btn btn-danger rightCont bottomLink " data-toggle="modal">Удалить</button>
                         <button type="button" data-target="#klientModal" class="btn btn-primary rightCont bottomLink " data-toggle="modal">Добавить</button>
                     </div>
                     <div class="panel panel-default" id="klientContent">
@@ -192,7 +196,7 @@
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button id="closes" type="button" class="close" data-dismiss="modal">&times;</button>
                     <h5>Сообщение</h5>
                 </div>
                 <div class="modal-body">
@@ -209,11 +213,12 @@
                     <hr>
                     <h6>Причина</h6>
                     <hr>
-                        <input id="protection" placeholder="Причина">
+                    <textarea id="protection" placeholder="Причина"></textarea>
                 </div>
                 <div class="modal-footer">
                     <a href="" id="addJurnal" class="btn btn-default">Создать</a>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
+                    <a href="" id="updatejurnal" class="btn btn-default">Изменить</a>
+                    <button id="clos" type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>
         </div>
@@ -224,13 +229,24 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close clo" data-dismiss="modal">&times;</button>
+                    <h5>Заявка</h5>
                 </div>
                 <div class="modal-body">
-
+                    <h5>Данные</h5>
+                    <h5>Клиент: <input type="text" disabled="disabled" id="klientZ"></h5>
+                    <h5>Причина: <input type="text" disabled="disabled" id="descriptionZ"></h5>
+                    <hr>
+                    <h5>
+                        Статус : <input id="inStatus">
+                    </h5>
+                    <h5>
+                        Ответ : <input id="inAnswer">
+                    </h5>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn-danger" data-dismiss="modal">Закрыть</button>
+                    <a href="#" id="updateZyavka" class="btn btn-default">Изменить</a>
+                    <button type="button" class="btn btn-danger clo" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>
         </div>
@@ -249,14 +265,15 @@
                     <input id="loginKlient" type="text" class="text-center center-block" placeholder="логин" >
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn-danger" data-dismiss="modal">Добавить</button>
+                    <button id="addklient" type="button" class="btn btn-default" >Добавить</button>
+                    <button  type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!--- Modal workers add-->
 
+    <!--- Modal delete add-->
     <div id="deleteKlientModal" class="modal fade" role="form">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -266,14 +283,15 @@
                 </div>
                 <div class="modal-body">
                     <div class="center-block">
-                        <h4 class="text-center">Введите логин клиента</h4>
-                        <input id="loginKlientDelete" type="text" class="text-center center-block" placeholder="логин" >
+                        <h4 class="text-center">Клиент</h4>
+                        <input id="loginKlientDelete" disabled="disabled" type="text" class="text-center center-block" placeholder="логин" >
                     </div>
                 </div>
                 <div class="modal-footer">
                     <div id="error"></div>
 
-                    <button id="createCompanyName" type="button" class="btn-default">Удалить</button>
+                    <button id="deleteKlient" type="button" class="btn btn-default">Удалить</button>
+                    <button  type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>
         </div>

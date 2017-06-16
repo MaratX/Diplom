@@ -6,6 +6,7 @@ package objects;
 public class Proposal {
     private int id;
     private String typeProposal;
+    private String answer;
     private int idUser;
     private String description;
     private int resposible;
@@ -19,6 +20,14 @@ public class Proposal {
 
     public int getId() {
         return id;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
     public void setId(int id) {

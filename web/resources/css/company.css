@@ -10,3 +10,7 @@
 .bottomLink{
     margin-bottom: 11px;
 }
+tbody tr:hover{
+    background: yellow;
+    cursor: pointer;
+}

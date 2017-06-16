@@ -24,13 +24,15 @@ public class getListZyavki extends HttpServlet{
         try{
             resp.setCharacterEncoding("UTF-8");
             PrintWriter pw = resp.getWriter();
-            int idOrganization = Integer.parseInt(req.getParameter("idOrganization"));
+            String [] orgg = req.getParameter("idOrganization").split("#");
+            int idOrganization = Integer.parseInt(orgg[0]);
             ProposalDAO proposalDAO = new ProposalDAO();
             ArrayList<Proposal> list = proposalDAO.getListByID(idOrganization);
             String listJson = "";
             AccountDAO accountDAO = new AccountDAO();
+
             for(Proposal p : list){
-                listJson += toString(p.getId(), p.getDescription(), accountDAO.getLoginUser(p.getIdUser()) , p.getStatus());
+                listJson += toString(p.getId(), p.getDescription(), accountDAO.getLoginUser(p.getIdUser()) , p.getStatus(),  p.getAnswer());
             }
 
             pw.print(listJson);
@@ -38,7 +40,7 @@ public class getListZyavki extends HttpServlet{
             System.out.println("Error : " + e);
         }
     }
-    public String toString(int id, String description, String klient, String status){
-        return id + "_" + description + "_" + klient + "_" + status + "|";
+    public String toString(int id, String description, String klient, String status,  String answer){
+        return id + "_" + description + "_" + klient + "_" + status + "_" + answer + "|";
     }
 }

@@ -18,6 +18,22 @@ public class KlientDAO  {
 
     private String sqlGetIdUser = "SELECT idUser FROM klient WHERE idOrganization = ?";
     private String sqlListOrg = "SELECT idOrganization FROM klient WHERE idUser = ?";
+    private String sqldelete = "DELETE FROM klient WHERE idUser = ? AND idOrganization = ?";
+    private String sqladd = "INSERT INTO klient(idUser, idOrganization) VALUES (?,?)";
+
+    public int addKlient(int idUser, int idOrg) throws  SQLException{
+        ps = jdbc.getCon().prepareStatement(sqladd);
+        ps.setInt(1, idUser);
+        ps.setInt(2, idOrg);
+        return ps.executeUpdate();
+    }
+
+    public int deleteKlient(int User, int org) throws SQLException{
+        ps = jdbc.getCon().prepareStatement(sqldelete);
+        ps.setInt(1, User);
+        ps.setInt(2, org);
+        return ps.executeUpdate();
+    }
 
     public String getList(String Organization) throws SQLException{
         int idOrg = new OrganizationDAO().getIdOrganization(Organization);

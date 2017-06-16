@@ -23,6 +23,43 @@ public class MyCompanyDAO {
     private String sqlGetListMyCompany = "SELECT id, idUser, idOrganization FROM  mycompany WHERE idUser = ?";
     private String sqlGetInCompanyRole = "SELECT role FROM mycompany WHERE idUser = ? AND idOrganization = ?";
     private String sqlGetWorkerList = "SELECT idUser, role FROM mycompany WHERE idOrganization = ?";
+    private String sqlUpdaterole = "UPDATE mycompany SET role = ? WHERE idUser = ? AND idOrganization = ?";
+    private String sqldeleteworker = "DELETE FROM mycompany WHERE idUser = ? AND idOrganization = ?";
+    private String sqladdworker = "INSERT INTO mycompany(idUser, idOrganization, role) VALUES (?, ?, ?)";
+
+    public int addworker(int idUser, String role, int idOrg) throws SQLException{
+        ps = jdbc.getCon().prepareStatement(sqladdworker);
+        ps.setInt(1, idUser);
+        ps.setInt(2, idOrg);
+        ps.setString(3, role);
+        return ps.executeUpdate();
+    }
+
+    public int deleteWorker(int idw, int idO) throws SQLException{
+        ps = jdbc.getCon().prepareStatement(sqldeleteworker);
+        ps.setInt(1, idw);
+        ps.setInt(2, idO);
+        return ps.executeUpdate();
+    }
+
+    public int updateRole(int idU, int idO, String role) throws SQLException{
+        ps =jdbc.getCon().prepareStatement(sqlUpdaterole);
+        ps.setString(1, role);
+        ps.setInt(2, idU);
+        ps.setInt(3, idO);
+        return ps.executeUpdate();
+    }
+
+    public String getRole(int idUser, int idOrg) throws SQLException{
+        ps = jdbc.getCon().prepareStatement(sqlGetInCompanyRole);
+        ps.setInt(1, idUser);
+        ps.setInt(2, idOrg);
+        rs = ps.executeQuery();
+        if(rs.next()){
+            return rs.getString(1);
+        }
+        return "";
+    }
 
     public int createMyCompany(int idUser, int idOrganization) throws SQLException{
         ps = jdbc.getCon().prepareStatement(sqlCreateMyCompany, Statement.RETURN_GENERATED_KEYS);

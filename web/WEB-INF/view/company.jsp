@@ -61,9 +61,7 @@
             <div class="container col-md-12" id="coworker">
                 <div class="container">
                 <div class="row text-right">
-                    <button type="button" data-target="#deleteWorkerModal" class="btn btn-danger rightCont bottomLink " data-toggle="modal">Удалить</button>
-                    <button type="button" data-target="#turnWorkerModal" class="btn btn-info rightCont bottomLink " data-toggle="modal">Изменить</button>
-                    <button type="button" data-target="#workerModal" class="btn btn-primary rightCont bottomLink " data-toggle="modal">Добавить</button>
+                    <button type="button" data-target="#addWorkerModal" class="btn btn-primary rightCont bottomLink " data-toggle="modal">Добавить</button>
                 </div>
                 </div>
                 <div class="panel panel-default" id="coworkerContent">
@@ -137,7 +135,7 @@
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="workers">
                                         <tr>
                                             <td>
                                                 У вас нет сотрудников
@@ -160,95 +158,75 @@
                     <div id="contentSettingsCompany" class="panel-body">
                         <h4>Настройки</h4>
                         <hr>
-                        <h5>Имя компаний : </h5>
+                        <h5>Имя компаний : <%=session.getAttribute("organization")%></h5>
                         <hr>
                         <h5>Юредический адрес</h5>
                         <hr>
-                        <h5>Город : <input placeholder="password"></h5>
-                        <h5>Улица : <input placeholder="password"></h5>
-                        <h5>Дом : <input placeholder="password"></h5>
-                        <h5>Офис : <input placeholder="password"></h5>
+                        <h5>Город : <input id="cityU" placeholder="город"></h5>
+                        <h5>Улица : <input id="streetU" placeholder="улица"></h5>
+                        <h5>Дом : <input id="homeU" placeholder="дом"></h5>
+                        <h5>Офис : <input id="ofisU" placeholder="офис">
+                            <button id="Uaddress" class="btn btn-default">Сохранить</button>
+                        </h5>
                         <hr>
                         <h5>Физический адрес</h5>
                         <hr>
-                        <h5>Город : <input placeholder="password"></h5>
-                        <h5>Улица : <input placeholder="password"></h5>
-                        <h5>Дом : <input placeholder="password"></h5>
-                        <h5>Офис : <input placeholder="password"></h5>
+                        <h5>Город : <input id="cityF" placeholder="город"></h5>
+                        <h5>Улица : <input id="streetF" placeholder="улица"></h5>
+                        <h5>Дом : <input id="homeF" placeholder="дом"></h5>
+                        <h5>Офис : <input id="ofisF" placeholder="офис">
+                            <button id="Faddress" class="btn btn-default">Сохранить</button>
+                        </h5>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!--- Modal workers add-->
+    <!--- Modal worker-->
 
     <div id="workerModal" class="modal fade" role="form">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Добавить нового сотрудника</h4>
+                    <h4 class="modal-title">Сотрудник</h4>
                 </div>
                 <div class="modal-body">
                     <div class="center-block">
-                        <h4 class="text-center">Введите логин сотрудника</h4>
-                        <input id="loginWorker" type="text" class="text-center center-block" placeholder="логин" >
-                        <h4 class="text-center">Введите должность сотрудника</h4>
-                        <input id="positionWorker" type="text" class="text-center center-block" placeholder="должность" >
+                        <h5>Логин: <input disabled="disabled" name="" id="loginWork" type="text" placeholder="логин"></h5>
+                        <h5>ФИО: <input disabled="disabled" id="fioWork" type="text" placeholder="ФИО"></h5>
+                        <h5>Роль: <input  id="roleWork" type="text" placeholder="роль"></h5>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <div id="error"></div>
-
-                    <button id="createCompanyName" type="button" class="btn-default">Добавить</button>
+                    <button id="updateWorker" type="button" class="btn btn-default">Изменить</button>
+                    <button id="delWorker" type="button" class="btn btn-default">Удалить</button>
+                    <button id="d" type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!--- Modal workers delete -->
+    <!--- Modal workers add -->
 
-    <div id="deleteWorkerModal" class="modal fade" role="form">
+    <div id="addWorkerModal" class="modal fade" role="form">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Удалить сотрудника</h4>
+                    <h4 class="modal-title">Добавить сотрудника</h4>
                 </div>
                 <div class="modal-body">
                     <div class="center-block">
-                        <h4 class="text-center">Введите логин сотрудника</h4>
-                        <input id="loginWorkerDelete" type="text" class="text-center center-block" placeholder="логин" >
+                        <h5>Введите логин :<input id="loginWorker" placeholder="логин"></h5>
+                        <h5>Введите роль :<input id="roleWorker" placeholder="роль"></h5>
                     </div>
                 </div>
                 <div class="modal-footer">
 
-                    <button id="deleteWorker" type="button" class="btn-default">Удалить</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--- Modal workers turn Изменение -->
-
-    <div id="turnWorkerModal" class="modal fade" role="form">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Добавить нового сотрудника</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="center-block">
-                        <h4 class="text-center">Введите логин сотрудника</h4>
-                        <input id="loginWorkerTurn" type="text" class="text-center center-block" placeholder="логин" >
-                        <h4 class="text-center">Введите должность сотрудника</h4>
-                        <input id="positionWorkerTurn" type="text" class="text-center center-block" placeholder="должность" >
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button id="turnWorker" type="button" class="btn-default">Изменить</button>
+                    <button id="addWorker" type="button" class="btn btn-default">Добавить</button>
                 </div>
             </div>
         </div>

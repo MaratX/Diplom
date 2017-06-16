@@ -1,5 +1,6 @@
 package lib_dep;
 
+import objects.Address;
 import objects.JurnalOff;
 import objects.Organization;
 
@@ -17,6 +18,41 @@ public class JurnalOffDAO {
     private String sqlAddJurnalOff = "INSERT INTO journalOff (address, offStart, offClose, description, idOrganization) VALUES (?,?,?,?,?)";
     private String sqlListJurnalOff = "SELECT idJournalOff, description, address, offStart, offClose FROM journaloff WHERE idOrganization = ?";
     private String sqlUserListJornalOff = "SELECT idJournalOff, description, idOrganization, offStart, offClose FROM journaloff WHERE idOrganization IN  (SELECT idOrganization FROM mycompany WHERE idUser = ?);";
+    private String sqlGetJurnal = "SELECT address, offStart, offClose, description FROM journaloff WHERE idJournalOff = ?";
+    private String sqlUpdate = "UPDATE journaloff SET offStart = ?, offClose = ?, description = ? WHERE idJournalOff = ?";
+    private String sqlGetAddress = "SELECT address FROM journaloff WHERE idJournalOff = ?";
+
+    public int getAddress(int id) throws SQLException{
+        ps = jdbc.getCon().prepareStatement(sqlGetAddress);
+        ps.setInt(1, id);
+        rs = ps.executeQuery();
+        if(rs.next()){
+            return rs.getInt(1);
+        }
+        return -1;
+    }
+
+    public int updateJurnal(int id, Date start, Date close, String desc) throws SQLException{
+        ps = jdbc.getCon().prepareStatement(sqlUpdate);
+        ps.setDate(1, start);
+        ps.setDate(2, close);
+        ps.setString(3, desc);
+        ps.setInt(4, id);
+        return ps.executeUpdate();
+    }
+
+    public String getJurnal (int id) throws SQLException{
+        String result = "";
+        ps = jdbc.getCon().prepareStatement(sqlGetJurnal);
+        ps.setInt(1, id);
+        rs = ps.executeQuery();
+
+        if(rs.next()) {
+            Address a = new AddressDAO().getAddressById(rs.getInt(1));
+            result += id + "_" + a.getCity() + "_" + a.getStreet() + "_" + a.getHome() + "_" + rs.getDate(2) + "_" + rs.getDate(3) + "_" + rs.getString(4);
+        }
+        return result;
+    }
 
     public int AddJurnalOff(JurnalOff jurnalOff) throws SQLException{
             ps = jdbc.getCon().prepareStatement(sqlAddJurnalOff, Statement.RETURN_GENERATED_KEYS);
@@ -65,5 +101,6 @@ public class JurnalOffDAO {
 
         return result;
     }
+
 
 }

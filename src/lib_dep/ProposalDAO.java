@@ -21,9 +21,34 @@ public class ProposalDAO {
     private JDBC jdbc = new JDBC();
     private PreparedStatement ps;
     private ResultSet rs;
-    private String sqlGetById = "SELECT id, description, idUser, status FROM proposal WHERE idOrganization = ?";
+    private String sqlGetById = "SELECT id, description, idUser, status, answer FROM proposal WHERE idOrganization = ?";
     private String sqlGetUserLust = "SELECT id, idOrganization, description, status, answer FROM proposal WHERE idUser = ?";
     private String sqlAddProposal = "INSERT INTO proposal (idUser, description, dateOpen, status, idOrganization) VALUES (?,?,?,?,?)";
+    private String sqlGetZyavka = "SELECT description, idUser, status, answer FROM proposal WHERE id = ?";
+    private String sqlUpdate = "UPDATE proposal SET status = ?, answer = ?, responsible = ? WHERE id = ?";
+
+    public int update(int idz, String status, String answer, int worker) throws SQLException{
+        ps = jdbc.getCon().prepareStatement(sqlUpdate);
+        ps.setString(1, status);
+        ps.setString(2, answer);
+        ps.setInt(3, worker);
+        ps.setInt(4, idz);
+        return ps.executeUpdate();
+    }
+
+    public Proposal getZyavka(int idz) throws SQLException{
+        ps = jdbc.getCon().prepareStatement(sqlGetZyavka);
+        ps.setInt(1, idz);
+        rs = ps.executeQuery();
+        Proposal p = new Proposal();
+        if(rs.next()){
+            p.setDescription(rs.getString(1));
+            p.setIdUser(rs.getInt(2));
+            p.setStatus(rs.getString(3));
+            p.setAnswer(rs.getString(4));
+        }
+        return p;
+    }
 
     public ArrayList<Proposal> getListByID(int idOrganization) throws SQLException {
         ArrayList<Proposal> list = new ArrayList<>();
@@ -36,6 +61,7 @@ public class ProposalDAO {
             p.setDescription(rs.getString(2));
             p.setIdUser(rs.getInt(3));
             p.setStatus(rs.getString(4));
+            p.setAnswer(rs.getString(5));
             list.add(p);
         }
         return list;
