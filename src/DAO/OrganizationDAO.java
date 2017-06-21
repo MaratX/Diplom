@@ -1,4 +1,4 @@
-package lib_dep;
+package DAO;
 
 import objects.Address;
 import objects.Organization;

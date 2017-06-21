@@ -1,6 +1,6 @@
 package control;
 
-import lib_dep.JurnalOffDAO;
+import DAO.JurnalOffDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

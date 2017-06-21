@@ -1,6 +1,6 @@
 package control;
 
-import lib_dep.OrganizationDAO;
+import DAO.OrganizationDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

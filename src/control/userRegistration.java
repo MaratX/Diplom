@@ -1,6 +1,6 @@
 package control;
 
-import lib_dep.AccountDAO;
+import DAO.AccountDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,9 +21,11 @@ public class userRegistration extends HttpServlet {
         AccountDAO account = new AccountDAO();
         String result = account.Authorization(s, p);
         if(result.equals("registration completed successfully")){
-            req.getRequestDispatcher("WEB-INF/view/user.jsp").forward(req, resp);
+            req.setAttribute("result", "Регистрация прошла успешно");
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
         }else {
-            req.getRequestDispatcher("WEB-INF/view/addCompany.jsp").forward(req, resp);
+            req.setAttribute("result", "Этот логин уже используеться");
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
         }
     }
 }

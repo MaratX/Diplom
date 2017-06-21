@@ -1,6 +1,5 @@
-package lib_dep;
+package DAO;
 
-import java.io.IOException;
 import java.sql.*;
 
 /**

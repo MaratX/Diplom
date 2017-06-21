@@ -1,8 +1,11 @@
 package control;
 
-import lib_dep.AccountDAO;
-import lib_dep.ProposalDAO;
+import DAO.AccountDAO;
+import DAO.AddressDAO;
+import DAO.ProposalDAO;
+import objects.Address;
 import objects.Proposal;
+import objects.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,15 +27,18 @@ public class getListZyavki extends HttpServlet{
         try{
             resp.setCharacterEncoding("UTF-8");
             PrintWriter pw = resp.getWriter();
-            String [] orgg = req.getParameter("idOrganization").split("#");
-            int idOrganization = Integer.parseInt(orgg[0]);
+            String [] idOrg = req.getParameter("idOrganization").split("#");
+            int idOrganization = Integer.parseInt(idOrg[0]);
             ProposalDAO proposalDAO = new ProposalDAO();
             ArrayList<Proposal> list = proposalDAO.getListByID(idOrganization);
             String listJson = "";
             AccountDAO accountDAO = new AccountDAO();
 
             for(Proposal p : list){
-                listJson += toString(p.getId(), p.getDescription(), accountDAO.getLoginUser(p.getIdUser()) , p.getStatus(),  p.getAnswer());
+                Address a = new AddressDAO().getAddressById(accountDAO.getAdress(accountDAO.getLoginUser(p.getIdUser())));
+                String adress = a.getCity() + " " + a.getStreet() + " " + a.getHome() + " " + a.getApartment();
+                User phone = accountDAO.getUser(p.getIdUser());
+                listJson += toString(p.getId(), p.getDescription(), accountDAO.getLoginUser(p.getIdUser()) , p.getStatus(), adress,  p.getAnswer(), phone.getPhone());
             }
 
             pw.print(listJson);
@@ -40,7 +46,7 @@ public class getListZyavki extends HttpServlet{
             System.out.println("Error : " + e);
         }
     }
-    public String toString(int id, String description, String klient, String status,  String answer){
-        return id + "_" + description + "_" + klient + "_" + status + "_" + answer + "|";
+    public String toString(int id, String description, String klient, String status, String adress,  String answer, String phone){
+        return id + "_" + description + "_" + klient + "_" + status + "_" + adress + "_" + answer + "_" + phone + "|";
     }
 }

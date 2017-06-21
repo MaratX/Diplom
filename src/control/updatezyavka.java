@@ -1,7 +1,7 @@
 package control;
 
-import lib_dep.AccountDAO;
-import lib_dep.ProposalDAO;
+import DAO.AccountDAO;
+import DAO.ProposalDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

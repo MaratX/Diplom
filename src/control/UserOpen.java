@@ -1,6 +1,6 @@
 package control;
 
-import lib_dep.AccountDAO;
+import DAO.AccountDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Date;
 
 /**
  * Created by Gustovs on 13.02.2017.
@@ -28,7 +27,7 @@ public class UserOpen extends HttpServlet {
         if(account.Authentication(s, p)){
             HttpSession session = req.getSession();
             session.setAttribute("login", s);
-            session.setAttribute("token", session.getId());
+            session.setAttribute("pass", p);
             req.getRequestDispatcher("WEB-INF/view/user.jsp").forward(req, resp);
         }else{
             req.getRequestDispatcher("WEB-INF/view/addCompany.jsp").forward(req, resp);

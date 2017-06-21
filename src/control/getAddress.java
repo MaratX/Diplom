@@ -1,7 +1,7 @@
 package control;
 
-import lib_dep.AccountDAO;
-import lib_dep.AddressDAO;
+import DAO.AccountDAO;
+import DAO.AddressDAO;
 import objects.Address;
 import objects.User;
 

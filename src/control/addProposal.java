@@ -1,8 +1,8 @@
 package control;
 
-import lib_dep.AccountDAO;
-import lib_dep.OrganizationDAO;
-import lib_dep.ProposalDAO;
+import DAO.AccountDAO;
+import DAO.OrganizationDAO;
+import DAO.ProposalDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.sql.Date;
 
 /**
  * Created by Gustovs on 14.06.2017.

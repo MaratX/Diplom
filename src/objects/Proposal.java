@@ -1,5 +1,7 @@
 package objects;
 
+import java.sql.Date;
+
 /**
  * Created by Gustovs on 06.06.2017.
  */
@@ -10,8 +12,8 @@ public class Proposal {
     private int idUser;
     private String description;
     private int resposible;
-    private String dataOpen;
-    private String dataClose;
+    private Date dataOpen;
+    private Date dataClose;
     private String status;
     private String idOrganization;
 
@@ -66,19 +68,19 @@ public class Proposal {
         this.resposible = resposible;
     }
 
-    public String getDataOpen() {
+    public Date getDataOpen() {
         return dataOpen;
     }
 
-    public void setDataOpen(String dataOpen) {
+    public void setDataOpen(Date dataOpen) {
         this.dataOpen = dataOpen;
     }
 
-    public String getDataClose() {
+    public Date getDataClose() {
         return dataClose;
     }
 
-    public void setDataClose(String dataClose) {
+    public void setDataClose(Date dataClose) {
         this.dataClose = dataClose;
     }
 

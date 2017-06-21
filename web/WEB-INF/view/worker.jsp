@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/userOpen?login=<%=session.getAttribute("login")%>&pass=<%=session.getAttribute("pass")%>">
                         <div id="loginPublic"><%=session.getAttribute("login")%></div>
                     </a>
                 </li>
@@ -130,11 +130,18 @@
                                         Клиент
                                     </th>
                                     <th>
+                                        Телефон
+                                    </th>
+                                    <th>
                                         Статус
+                                    </th>
+                                    <th>
+                                        Адрес
                                     </th>
                                     <th>
                                         Ответ
                                     </th>
+
                                 </tr>
                                 </thead>
                                 <tbody id="MyZyavki">
@@ -175,7 +182,7 @@
                                 </tr>
                                 </thead>
                                 <tbody id="MyKlient">
-                                    <tr id="klientList">
+                                    <tr id="klientList" class="klient">
                                         <td> У вас нет клиентов</td>
 
                                     </tr>
@@ -236,6 +243,8 @@
                     <h5>Данные</h5>
                     <h5>Клиент: <input type="text" disabled="disabled" id="klientZ"></h5>
                     <h5>Причина: <input type="text" disabled="disabled" id="descriptionZ"></h5>
+                    <h5>Адрес: <textarea type="text" disabled="disabled" id="addressZ"></textarea></h5>
+                    <h5>Телефон: <input type="text" disabled="disabled" id="phoneZ"></h5>
                     <hr>
                     <h5>
                         Статус : <input id="inStatus">

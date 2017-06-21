@@ -1,9 +1,8 @@
 package control;
 
-import lib_dep.AccountDAO;
-import lib_dep.MyCompanyDAO;
-import lib_dep.OrganizationDAO;
-import objects.Organization;
+import DAO.AccountDAO;
+import DAO.MyCompanyDAO;
+import DAO.OrganizationDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -1,7 +1,7 @@
 package control;
 
-import lib_dep.MyCompanyDAO;
-import lib_dep.OrganizationDAO;
+import DAO.MyCompanyDAO;
+import DAO.OrganizationDAO;
 import objects.Organization;
 
 import javax.servlet.ServletException;
@@ -34,10 +34,10 @@ public class getJump extends HttpServlet{
             System.out.println("Error: " + e);
         }
         HttpSession session = req.getSession();
-        if(role.equals("worker")) {
+        if(role.equals("работник")) {
             session.setAttribute("organization", OrgName);
             req.getRequestDispatcher("WEB-INF/view/worker.jsp").forward(req, resp);
-        }if(role.equals("boss")){
+        }if(role.equals("руководитель")){
             session.setAttribute("organization", OrgName);
             req.getRequestDispatcher("WEB-INF/view/company.jsp").forward(req,resp);
         }

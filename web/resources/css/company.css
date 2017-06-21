@@ -14,3 +14,6 @@ tbody tr:hover{
     background: yellow;
     cursor: pointer;
 }
+.morgan{
+    padding: 20px;
+}

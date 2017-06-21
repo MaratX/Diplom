@@ -1,4 +1,4 @@
-package lib_dep;
+package DAO;
 
 import objects.Address;
 import objects.Proposal;
@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by Gustovs on 06.06.2017.
@@ -26,6 +25,46 @@ public class ProposalDAO {
     private String sqlAddProposal = "INSERT INTO proposal (idUser, description, dateOpen, status, idOrganization) VALUES (?,?,?,?,?)";
     private String sqlGetZyavka = "SELECT description, idUser, status, answer FROM proposal WHERE id = ?";
     private String sqlUpdate = "UPDATE proposal SET status = ?, answer = ?, responsible = ? WHERE id = ?";
+    private String sqlWorkerProposal = "SELECT status, responsible, dateOpen, dateClose FROM proposal WHERE responsible = ? AND idOrganization = ?";
+    private String sqlKlientProposal = "SELECT status, idUser, dateOpen, dateClose FROM proposal WHERE idUser = ? AND idOrganization = ?";
+
+    public ArrayList<Proposal> listProposalKlient(ArrayList<Integer> listKlient, int idOrg) throws SQLException{
+        ArrayList<Proposal> list = new ArrayList<>();
+        for(int i : listKlient){
+            ps = jdbc.getCon().prepareStatement(sqlKlientProposal);
+            ps.setInt(1, i);
+            ps.setInt(2, idOrg);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                Proposal p = new Proposal();
+                p.setStatus(rs.getString(1));
+                p.setIdUser(rs.getInt(2));
+                p.setDataOpen(rs.getDate(3));
+                p.setDataClose(rs.getDate(4));
+                list.add(p);
+            }
+        }
+        return list;
+    }
+
+    public ArrayList<Proposal> listProposalWorker(ArrayList<Integer> listWorker, int idOrg) throws SQLException{
+        ArrayList<Proposal> list = new ArrayList<>();
+        for(int i : listWorker){
+            ps = jdbc.getCon().prepareStatement(sqlWorkerProposal);
+            ps.setInt(1, i);
+            ps.setInt(2, idOrg);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                Proposal p = new Proposal();
+                p.setStatus(rs.getString(1));
+                p.setResposible(rs.getInt(2));
+                p.setDataOpen(rs.getDate(3));
+                p.setDataClose(rs.getDate(4));
+                list.add(p);
+            }
+        }
+        return list;
+    }
 
     public int update(int idz, String status, String answer, int worker) throws SQLException{
         ps = jdbc.getCon().prepareStatement(sqlUpdate);
@@ -75,12 +114,17 @@ public class ProposalDAO {
         ps = jdbc.getCon().prepareStatement(sqlGetUserLust);
         ps.setInt(1, user.getIdUser(userLog));
         rs = ps.executeQuery();
+        int i = user.getIdUser(userLog);
 
         while (rs.next()){
             String orgName = new OrganizationDAO().getOrganizationById(rs.getInt(2)).getName_Organization();
-            Address a = new AddressDAO().getAddressById(new  AccountDAO().getIdUser(userLog));
+            Address a = new AddressDAO().getAddressById(new  AccountDAO().getAdress(userLog));
             String address = a.getCity() +" "+ a.getStreet() +" "+ a.getHome() +" "+ a.getApartment();
-            result += rs.getInt(1) +"_"+ orgName +"_"+ rs.getString(3) +"_"+ rs.getString(4) + "_" + address + "_"+ rs.getString(5) + "|";
+            String answer = "";
+            if(rs.getString(5) != null){
+                answer = rs.getString(5);
+            }
+            result += rs.getInt(1) +"_"+ orgName +"_"+ rs.getString(3) +"_"+ rs.getString(4) + "_" + address + "_"+ answer + "|";
         }
         return result;
     }

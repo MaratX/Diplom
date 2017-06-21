@@ -1,4 +1,4 @@
-package lib_dep;
+package DAO;
 
 import objects.Address;
 import objects.User;
@@ -25,6 +25,18 @@ public class AccountDAO {
     private String sqladdfio = "UPDATE user SET name= ?, lastName = ? WHERE idUser = ?";
     private String sqlAddPhone = "UPDATE user SET phone = ? WHERE idUser = ?";
     private String sqlUpdatePass = "UPDATE user SET password = ? WHERE idUser = ?";
+    private String sqlAdress = "SELECT addressUser FROM user WHERE iduser = ?";
+
+    public int getAdress(String login) throws SQLException{
+        int i = new AccountDAO().getIdUser(login);
+        ps = jdbc.getCon().prepareStatement(sqlAdress);
+        ps.setInt(1, i);
+        rs = ps.executeQuery();
+        if(rs.next()){
+            return rs.getInt(1);
+        }
+        return -1;
+    }
 
     public int UpdatePass(int idUser, String pass) throws SQLException{
         ps = jdbc.getCon().prepareStatement(sqlUpdatePass);

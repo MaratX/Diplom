@@ -1,6 +1,6 @@
 package control;
 
-import lib_dep.MyCompanyDAO;
+import DAO.MyCompanyDAO;
 import objects.MyCompany;
 
 import javax.servlet.ServletException;

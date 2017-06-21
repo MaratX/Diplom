@@ -1,4 +1,4 @@
-package lib_dep;
+package DAO;
 
 import objects.Address;
 import objects.User;
@@ -20,6 +20,18 @@ public class KlientDAO  {
     private String sqlListOrg = "SELECT idOrganization FROM klient WHERE idUser = ?";
     private String sqldelete = "DELETE FROM klient WHERE idUser = ? AND idOrganization = ?";
     private String sqladd = "INSERT INTO klient(idUser, idOrganization) VALUES (?,?)";
+    private String sqlKlient = "SELECT idUser FROM klient WHERE idOrganization = ?";
+
+    public ArrayList<Integer> klientList (int idOrg) throws SQLException{
+        ArrayList<Integer> list = new ArrayList<>();
+        ps = jdbc.getCon().prepareStatement(sqlKlient);
+        ps.setInt(1, idOrg);
+        rs = ps.executeQuery();
+        while (rs.next()){
+            list.add(rs.getInt(1));
+        }
+        return list;
+    }
 
     public int addKlient(int idUser, int idOrg) throws  SQLException{
         ps = jdbc.getCon().prepareStatement(sqladd);

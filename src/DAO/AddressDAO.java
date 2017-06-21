@@ -1,4 +1,4 @@
-package lib_dep;
+package DAO;
 
 import objects.Address;
 
@@ -119,12 +119,12 @@ public class AddressDAO {
         return ps.executeUpdate();
     }
 
-    public int UpdateAddress(int id, String city, String street, String home, String appart) throws SQLException{
+    public int UpdateAddress(int id, String city, String street, String home, String apart) throws SQLException{
         ps = jdbc.getCon().prepareStatement(sqlUpdateAddress);
         ps.setString(1, city);
         ps.setString(2, street);
         ps.setString(3, home);
-        ps.setString(4, appart);
+        ps.setString(4, apart);
         ps.setInt(5, id);
         return ps.executeUpdate();
     }

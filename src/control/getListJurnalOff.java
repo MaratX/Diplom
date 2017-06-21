@@ -1,7 +1,7 @@
 package control;
 
-import lib_dep.AddressDAO;
-import lib_dep.JurnalOffDAO;
+import DAO.AddressDAO;
+import DAO.JurnalOffDAO;
 import objects.Address;
 import objects.JurnalOff;
 

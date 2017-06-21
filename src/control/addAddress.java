@@ -1,7 +1,7 @@
 package control;
 
-import lib_dep.AccountDAO;
-import lib_dep.AddressDAO;
+import DAO.AccountDAO;
+import DAO.AddressDAO;
 import objects.User;
 
 import javax.servlet.ServletException;
@@ -25,7 +25,7 @@ public class addAddress extends HttpServlet{
         try {
             int idUser = new AccountDAO().getIdUser(req.getParameter("login"));
             User u = new AccountDAO().getUser(idUser);
-            pw.print(new AddressDAO().UpdateAddress(u.getAddressUser(), req.getParameter("city"), req.getParameter("street"), req.getParameter("home"), req.getParameter("apartment")));
+            pw.print(new AddressDAO().UpdateAddress(u.getAddressUser(), req.getParameter("city"), req.getParameter("street"), req.getParameter("home"), req.getParameter("apart")));
         }catch (SQLException e){
             System.out.println("Error " + e);
         }

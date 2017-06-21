@@ -107,6 +107,14 @@ $("#deleteKlient").click(function () {
         success: parseKlientD,
         dataType: "text"
     })
+    $("tr.klient").remove();
+    $.ajax({
+        url: "getKlientList",
+        type: "GET",
+        data: {"organization" : $("#Organization").text()},
+        success: parseKlientL,
+        dataType: "text"
+    })
 })
 
 $("#addklient").click(function () {
@@ -117,7 +125,34 @@ $("#addklient").click(function () {
         success: parseklientAdd,
         datType: "text"
     })
+    $("tr.klient").remove();
+    $.ajax({
+        url: "getKlientList",
+        type: "GET",
+        data: {"organization" : $("#Organization").text()},
+        success: parseKlientL,
+        dataType: "text"
+    })
 })
+
+function parseKlientL(data) {
+    if(data.length > 0){
+        var list = data.split("|");
+        var result = "";
+        for(i = 0; i < list.length -1; i++){
+            var inList = list[i].split("_");
+            result += "<tr class='klient' name='" + inList[0] +
+                "'>" +
+                "<td>"+ inList[0] +"</td>" +
+                "<td>"+ inList[1] +"</td>" +
+                "<td>"+ inList[2] +"</td>" +
+                "<td>"+ inList[3] +"</td>" +
+                "<td>"+ inList[4] +"</td>" +
+                "</tr>"
+        }
+        $("#MyKlient").append(result);
+    }
+}
 
 function parseklientAdd(data) {
     if(data > 0){
@@ -201,13 +236,14 @@ function parseklient(data) {
 function parseZyavka(data) {
     if(data.length > 0){
         var list = data.split("_");
-        $("#klientZ").val(list[1]);
-        $("#descriptionZ").val(list[0]);
         document.getElementById("klientZ").value = list[1];
-        document.getElementById("klientZ").name = list[4]
+        document.getElementById("klientZ").name = list[6]
         document.getElementById("descriptionZ").value = list[0];
-        document.getElementById("inStatus").value = list[2];
-        document.getElementById("inAnswer").value = list[3];
+        document.getElementById("inStatus").value = list[4];
+        document.getElementById("inAnswer").value = list[5];
+        document.getElementById("addressZ").value = list[2];
+        document.getElementById("phoneZ").value = list[3];
+
     }
 }
 
@@ -256,15 +292,17 @@ function zyavkiList(data) {
         for(i = 0; i < list.length -1; i++){
             var inList = list[i].split("_");
             var answer = " ";
-            if(inList[4] != "null"){
-                answer = inList[4];
+            if(inList[5] != "null"){
+                answer = inList[5];
             }
             result += "<tr class='zyavka'name = '" + inList[0] +
                 "'>" +
                 "<td>" + inList[0] + "</td>"+
                 "<td>" + inList[1] + "</td>" +
                 "<td>" + inList[2] + "</td>" +
+                "<td>" + inList[6] + "</td>" +
                 "<td>" + inList[3] + "</td>" +
+                "<td>" + inList[4] + "</td>" +
                 "<td>" + answer + "</td>" +
                 "</tr>"
         }

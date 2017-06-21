@@ -1,6 +1,6 @@
 package control;
 
-import lib_dep.AccountDAO;
+import DAO.AccountDAO;
 import objects.User;
 
 import javax.servlet.ServletException;

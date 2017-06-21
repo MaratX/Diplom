@@ -1,8 +1,11 @@
 package control;
 
-import lib_dep.AccountDAO;
-import lib_dep.ProposalDAO;
+import DAO.AccountDAO;
+import DAO.AddressDAO;
+import DAO.ProposalDAO;
+import objects.Address;
 import objects.Proposal;
+import objects.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,8 +29,10 @@ public class getZyavka extends HttpServlet{
         String result = "";
         try {
             Proposal s = new ProposalDAO().getZyavka(idz);
-
-            result += s.getDescription() + "_" + new AccountDAO().getLoginUser(s.getIdUser()) + "_" + s.getStatus() + "_" + s.getAnswer() + "_" + idz;
+            Address a = new AddressDAO().getAddressById(new AccountDAO().getAdress(new AccountDAO().getLoginUser(s.getIdUser())));
+            String adres = a.getCity() + " " + a.getStreet() + " " + a.getHome() + " " + a.getApartment();
+            User u = new AccountDAO().getUser(s.getIdUser());
+            result += s.getDescription() + "_" + new AccountDAO().getLoginUser(s.getIdUser()) + "_" + adres + "_" + u.getPhone() + "_" + s.getStatus() + "_" + s.getAnswer() + "_" + idz;
             pw.print(result);
         }catch (SQLException e){
             System.out.print(e);

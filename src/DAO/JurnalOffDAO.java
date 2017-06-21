@@ -1,4 +1,4 @@
-package lib_dep;
+package DAO;
 
 import objects.Address;
 import objects.JurnalOff;
@@ -17,7 +17,7 @@ public class JurnalOffDAO {
 
     private String sqlAddJurnalOff = "INSERT INTO journalOff (address, offStart, offClose, description, idOrganization) VALUES (?,?,?,?,?)";
     private String sqlListJurnalOff = "SELECT idJournalOff, description, address, offStart, offClose FROM journaloff WHERE idOrganization = ?";
-    private String sqlUserListJornalOff = "SELECT idJournalOff, description, idOrganization, offStart, offClose FROM journaloff WHERE idOrganization IN  (SELECT idOrganization FROM mycompany WHERE idUser = ?);";
+    private String sqlUserListJornalOff = "SELECT idJournalOff, description, idOrganization, offStart, offClose FROM journaloff WHERE idOrganization IN  (SELECT idOrganization FROM klient WHERE idUser = ?);";
     private String sqlGetJurnal = "SELECT address, offStart, offClose, description FROM journaloff WHERE idJournalOff = ?";
     private String sqlUpdate = "UPDATE journaloff SET offStart = ?, offClose = ?, description = ? WHERE idJournalOff = ?";
     private String sqlGetAddress = "SELECT address FROM journaloff WHERE idJournalOff = ?";

@@ -34,12 +34,12 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="#">
-                        <div id="Organization"><%=session.getAttribute("organization")%></div>
+                        <div id="Organization" ><%=session.getAttribute("organization")%></div>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <div id="loginPublic"><%=session.getAttribute("login")%></div>
+                    <a href="/userOpen?login=<%=session.getAttribute("login")%>&pass=<%=session.getAttribute("pass")%>">
+                        <div id="loginPublic" name="<%=session.getAttribute("pass")%>"><%=session.getAttribute("login")%></div>
                     </a>
                 </li>
                 <li>
@@ -110,11 +110,20 @@
                                 <a href="#worker" aria-controls="worker" role="tab" data-toggle="tab">Заявки по сотрудникам</a>
                             </li>
                             <li role="presentation">
-                                <a href="#zyavkiClose" aria-controls="zyavkiClose" role="tab" data-toggle="tab">Закрытые заявки</a>
+                                <a href="#zyavkiClose" aria-controls="zyavkiClose" role="tab" data-toggle="tab">Заявки по клиентам</a>
                             </li>
                         </ul>
-                        <div class="tab-content">
+                        <div class="tab-content morgan">
                             <div role="tabpanel" class="tab-pane active" id="worker">
+
+                                <div class="container">
+                                    <div class="row">
+                                        <input id="startReport"  type='date'>
+                                        <input id="closeReport"  type='date'>
+                                        <button id="periodButton" class="btn btn-default">Приминить</button>
+                                    </div>
+                                </div>
+
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
@@ -136,16 +145,53 @@
                                         </tr>
                                     </thead>
                                     <tbody id="workers">
-                                        <tr>
+                                        <tr id="reportWorkerList" class="report">
                                             <td>
                                                 У вас нет сотрудников
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
+
                             </div>
                             <div role="tabpanel" class="tab-pane" id="zyavkiClose">
-                                <h5>close</h5>
+                                <div class="container">
+                                    <div class="row">
+                                        <input id="startReportKlient" type='date'>
+                                        <input id="closeReportKlient" type='date'>
+                                        <button id="periodKlientButton" class="btn btn-default">Приминить</button>
+                                    </div>
+                                </div>
+
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                №
+                                            </th>
+                                            <th>
+                                                Клиент
+                                            </th>
+                                            <th>
+                                                Количество заявок
+                                            </th>
+                                            <th>
+                                                В работе
+                                            </th>
+                                            <th>
+                                                Заврешено
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="klientReportBody">
+                                        <tr id="klientReport">
+                                            <td>
+                                                У вас нет заявок по клиентам
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
                             </div>
                         </div>
                     </div>

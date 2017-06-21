@@ -1,9 +1,9 @@
 package control;
 
-import lib_dep.AccountDAO;
-import lib_dep.AddressDAO;
-import lib_dep.MyCompanyDAO;
-import lib_dep.OrganizationDAO;
+import DAO.AccountDAO;
+import DAO.AddressDAO;
+import DAO.MyCompanyDAO;
+import DAO.OrganizationDAO;
 import objects.Address;
 import objects.MyCompany;
 

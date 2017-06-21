@@ -1,4 +1,4 @@
-package lib_dep;
+package DAO;
 
 import objects.Address;
 import objects.MyCompany;
@@ -17,7 +17,7 @@ public class MyCompanyDAO {
     private JDBC jdbc = new JDBC();
     private PreparedStatement ps;
     private ResultSet rs;
-    private String sqlCreateMyCompany = "INSERT INTO mycompany(idUser, idOrganization) VALUES (?,?)";
+    private String sqlCreateMyCompany = "INSERT INTO mycompany(idUser, idOrganization, role) VALUES (?,?, 'руководитель')";
     private String sqlDeleteMyCompany = "DELETE FROM mycompany WHERE id = ?";
     private String sqlGetMyCompany = "SELECT idUser, idOrganization FROM mycompany WHERE id = ?";
     private String sqlGetListMyCompany = "SELECT id, idUser, idOrganization FROM  mycompany WHERE idUser = ?";
@@ -26,6 +26,18 @@ public class MyCompanyDAO {
     private String sqlUpdaterole = "UPDATE mycompany SET role = ? WHERE idUser = ? AND idOrganization = ?";
     private String sqldeleteworker = "DELETE FROM mycompany WHERE idUser = ? AND idOrganization = ?";
     private String sqladdworker = "INSERT INTO mycompany(idUser, idOrganization, role) VALUES (?, ?, ?)";
+    private String sqllistworker = "SELECT idUser FROM mycompany WHERE idOrganization = ? AND role = 'работник'";
+
+    public ArrayList<Integer> listWorker (int idOrg) throws SQLException{
+        ps = jdbc.getCon().prepareStatement(sqllistworker);
+        ps.setInt(1, idOrg);
+        rs = ps.executeQuery();
+        ArrayList<Integer> list = new ArrayList<>();
+        while (rs.next()){
+            list.add(rs.getInt(1));
+        }
+        return list;
+    }
 
     public int addworker(int idUser, String role, int idOrg) throws SQLException{
         ps = jdbc.getCon().prepareStatement(sqladdworker);

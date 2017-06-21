@@ -13,7 +13,6 @@ $("#smsLink").click(function(){
     })
 
 });
-
 $("#requestUserLink").click(function(){
     $("#sms").hide();
     $("#requestUser").show();
@@ -28,7 +27,6 @@ $("#requestUserLink").click(function(){
         dataType: "text"
     })
 });
-
 $("#zayavkaBotton").click(function () {
     $.ajax({
         url:"getNameOrganization",
@@ -38,7 +36,6 @@ $("#zayavkaBotton").click(function () {
         dataType: "text"
     })
 });
-
 $("#tsjLink").click(function(){
     $("#sms").hide();
     $("#requestUser").hide();
@@ -54,14 +51,12 @@ $("#tsjLink").click(function(){
     })
 
 });
-
 $("#loginPublic").click(function () {
     $("#sms").hide();
     $("#requestUser").hide();
     $("#tsj").hide();
     $("#settings").show();
 })
-
 $("#testCompanyName").click(function () {
         $.ajax({
             url:"addCompany",
@@ -71,8 +66,6 @@ $("#testCompanyName").click(function () {
             dataType:"text"
         })
     });
-
-
 $("#createCompanyName").click(function () {
     $.ajax({
         url: "addCompany",
@@ -82,12 +75,12 @@ $("#createCompanyName").click(function () {
         dataType:"text"
     })
 });
-
 $("#addZyavka").click(function () {
     $.ajax({
         url: "addProposal",
         type: "GET",
-        data: {"option" : $("#sel1 :selected").text(), "user" : $("#loginPublic").text(), "description" : $("#comment").val()},
+        data: {"option" : $("#sel1 :selected").text(),
+            "user" : $("#loginPublic").text(), "description" : $("#comment").val()},
         success: parseZyavka,
         dataType: "text"
     })
@@ -110,7 +103,6 @@ $("#phoneBotton").click(function () {
         dataType: "text"
     })
 })
-
 $("#adressUser").click(function () {
     var city = $("#city").val();
     if(city == ""){
@@ -137,7 +129,6 @@ $("#adressUser").click(function () {
     })
 
 })
-
 $("#pass").click(function () {
     var pass = $("#password").val();
     if(pass != ""){
@@ -150,14 +141,12 @@ $("#pass").click(function () {
         })
     }
 })
-
 function parsePass(data) {
     if(data.length > 0){
         document.getElementById("password").value = "";
         document.getElementById("password").placeholder = "обнавлено";
     }
 }
-
 function parseAdressS(data) {
     if(data.length > 0){
         document.getElementById("city").value = "";
@@ -174,7 +163,6 @@ function parseAdressS(data) {
     })
 
 }
-
 function parsePhone(data) {
     if(data.length > 0){
         document.getElementById("phone").value = "";
@@ -187,7 +175,6 @@ function parsePhone(data) {
         dataType: "text"
     })
 }
-
 function parseAddFio(data) {
     if(data.length > 0){
         document.getElementById("nameUser").value = "";
@@ -203,7 +190,6 @@ function parseAddFio(data) {
     })
 
 }
-
 $(function () {
     $.ajax({
         url: "getUserListJurnalOff",
@@ -226,9 +212,15 @@ $(function () {
         success: parsefio,
         dataType: "text"
     })
+    $.ajax({
+        url: "getListUserProposal",
+        type: "GET",
+        data: {"login": $("#loginPublic").text()},
+        success: parseListPropasal,
+        dataType: "text"
+    })
 
 });
-
 function parsefio(data) {
     if(data.length > 0){
         var list = data.split("_");
@@ -237,7 +229,6 @@ function parsefio(data) {
         document.getElementById("phone").placeholder = list[2];
     }
 }
-
 function parseAddress(data) {
     if(data.length > 0){
         var list = data.split("_");
@@ -248,13 +239,18 @@ function parseAddress(data) {
 
     }
 }
-
 function parseZyavka(data) {
     if(data == "ok"){
-        document.getElementById("addZyavka").className = "btn btn-danger";
+        document.getElementById("addZyavka").className = "btn btn-success";
+        $.ajax({
+            url: "getListUserProposal",
+            type: "GET",
+            data: {"login": $("#loginPublic").text()},
+            success: parseListPropasal,
+            dataType: "text"
+        })
     }
 }
-
 function createCompanyFunction(data) {
     var result = "";
     if(data >= 0) {
@@ -270,7 +266,6 @@ function createCompanyFunction(data) {
         dataType: "text"
     })
 }
-
 function tsjListPointer(data){
     if(data.length > 0) {
         var list = data.split("_");
@@ -287,7 +282,6 @@ function tsjListPointer(data){
         $("#replace").replaceWith(rezult);
     }
 }
-
 function role(nameUser, idOrg){
     console.log("role");
     $.ajax({
@@ -298,21 +292,19 @@ function role(nameUser, idOrg){
         dataType: "html"
     })
 }
-
 function roleR(data) {
     console.log("roleR");
     $("#htmlR").html(data);
 }
-
 function myCompanyAddList(data){
     if(data.length > 0){
+        $(".replace").remove();
         var list = data.split("|");
         var result ="";
-        result = "<tr><td>"+ list[0] +"</td><td>"+ list[1] +"</td><td>"+ list[2] +"</td></tr>";
+        result = "<tr class='replace'><td>"+ list[0] +"</td><td>"+ list[1] +"</td><td>"+ list[2] +"</td></tr>";
         $("#MyCompany").append(result);
     }
 }
-
 function parseListJurnalOff(data) {
     if(data.length > 0){
         var list = data.split("|");
@@ -330,14 +322,14 @@ function parseListJurnalOff(data) {
         $("#JurnalOffList").replaceWith(result);
     }
 }
-
 function parseListPropasal(data){
     if(data.length > 0){
+        $("tr.proposal").remove();
         var list = data.split("|");
         var result = "";
         for(i = 0; i < list.length - 1; i++){
             var inList = list[i].split("_");
-            result += "<tr>" +
+            result += "<tr class='proposal'>" +
                 "<td>" + inList[0] +"</td>" +
                 "<td>" + inList[1] +"</td>" +
                 "<td>" + inList[2] +"</td>" +
@@ -346,10 +338,9 @@ function parseListPropasal(data){
                 "<td>" + inList[5] +"</td>" +
                 "</tr>"
         }
-        $("#myProposal").replaceWith(result);
+        $("#MyZyavki").append(result);
     }
 }
-
 function ordine(data) {
     if(data == "false"){
         document.getElementById("testCompanyName").setAttribute("class", "btn-success");
@@ -359,7 +350,6 @@ function ordine(data) {
         document.getElementById("testCompanyName").setAttribute("class", "btn-warning");
     }
 }
-
 function parseListNameOrg (data){
     if(data.length > 0){
         var list = data.split("_");
@@ -371,5 +361,3 @@ function parseListNameOrg (data){
     }
 }
 
-
-// ----------

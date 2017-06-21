@@ -33,7 +33,6 @@
 
             </li>
         </ul>
-
         <ul class="nav navbar-nav navbar-right">
             <li>
                 <a href="#"  >
@@ -49,9 +48,7 @@
         </ul>
     </div>
 </nav>
-
 <div class="container">
-
     <div class="row">
         <div class="col-md-12">
             <div class="container col-md-12 contentRight" id="sms">
@@ -78,21 +75,15 @@
                             </tr>
                             </thead>
                             <tbody id="MySms">
-
-
                             <tr id="JurnalOffList">
-                                <td>У вас нет заявок</td>
+                                <td>У вас нет уведомлений</td>
                             </tr>
 
                             </tbody>
                         </table>
                     </div>
                 </div>
-
-
-
             </div>
-
             <div class="container col-md-12 contentRight" id="requestUser">
                 <div class="text-right">
                     <button id="zayavkaBotton" type="button" data-target="#requestModal" class="btn btn-danger rightCont bottomLink" data-toggle="modal">Создать</button>
@@ -123,7 +114,7 @@
                             </tr>
                             </thead>
                             <tbody id="MyZyavki">
-                                <tr id = "myProposal">
+                                <tr class="proposal">
                                     <td>У вас нет заявок</td>
                                 </tr>
                             </tbody>
@@ -131,12 +122,10 @@
                     </div>
                 </div>
             </div>
-
             <div class="container col-md-12 contentRight" id="tsj">
                 <div class="text-right">
                     <button type="button" data-target="#tsjModal" class="btn btn-danger rightCont bottomLink " data-toggle="modal">Создать</button>
                 </div>
-
                 <div class="panel panel-default" id="tsjContent">
                     <div id="contentUserCompany" class="panel-body text-center">
                         <table class="table table-hover">
@@ -154,8 +143,7 @@
                             </tr>
                             </thead>
                             <tbody id="MyCompany">
-
-                            <tr id="replace">
+                            <tr id="replace" class="replace">
                                 <td>У вас нет компаний</td>
                             </tr>
 
